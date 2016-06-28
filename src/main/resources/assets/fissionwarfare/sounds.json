@@ -1,0 +1,18 @@
+{
+    "beep": { "category": "master", "sounds": [{ "name": "beep", "stream": false }] },
+		
+	"blast": { "category": "master", "sounds": [{ "name": "blast", "stream": false }] },
+	"gas_cloud": { "category": "master", "sounds": [{ "name": "gas_cloud", "stream": false }] },
+	"nuke": { "category": "master", "sounds": [{ "name": "nuke", "stream": false }] },
+	"cave_in": { "category": "master", "sounds": [{ "name": "cave_in", "stream": false }] },
+	"rumbling_cave": { "category": "master", "sounds": [{ "name": "rumbling_cave", "stream": false }] },
+	"rumbling": { "category": "master", "sounds": [{ "name": "rumbling", "stream": false }] },
+	
+	"shotgun_fire": { "category": "master", "sounds": [{ "name": "shotgun_fire", "stream": false }] },
+	
+	"turret_blast": { "category": "master", "sounds": [{ "name": "turret_blast", "stream": false }] },
+	
+	"launch": { "category": "master", "sounds": [{ "name": "launch", "stream": false }] },	
+	"missile_start": { "category": "master", "sounds": [{ "name": "missile_start", "stream": false }] },
+	"missile_fire": { "category": "master", "sounds": [{ "name": "missile_fire", "stream": false }] }
+}

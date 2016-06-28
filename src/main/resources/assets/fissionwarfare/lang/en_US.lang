@@ -1,0 +1,102 @@
+#-#-#-#-#-|ITEMS - MAIN|-#-#-#-#-#
+
+item.quartz_sand.name=Quartz Sand
+item.quartz_chunk.name=Quartz Chunk
+item.limestone_chunk.name=Limestone Chunk
+item.radioactive_chunk.name=Radioactive Chunk
+item.uranium_pellet.name=Uranium Pellet
+
+item.steel_ingot.name=Steel Ingot
+item.steel_plate.name=Steel Plate
+
+item.poison_capsule.name=Poison Capsule
+item.fiery_capsule.name=Fiery Capsule
+item.shrapnel_capsule.name=Shrapnel Capsule
+item.electromagnetic_capsule.name=Electromagnetic Capsule
+item.nuclear_capsule.name=Nuclear Capsule
+
+item.cement.name=Cement
+item.wet_cement.name=Wet Cement
+
+item.lightning_rod.name=Lightning Rod
+item.iron_frame.name=Iron Frame
+item.circuit_0.name=Basic Circuit
+item.circuit_1.name=Advanced Circuit
+item.circuit_2.name=Hyper Circuit
+item.fuel_canister_0.name=Liquid Coal Canister
+item.fuel_canister_1.name=Pyrotheum Canister
+item.fuel_canister_2.name=Cryotheum Canister
+item.motor.name=Motor
+
+item.nail.name=Nail
+item.cartridge.name=Cartridge
+
+item.steel_sword.name=Steel Sword
+item.steel_pickaxe.name=Steel Pickaxe
+item.steel_shovel.name=Steel Shovel
+item.steel_axe.name=Steel Axe
+item.steel_hoe.name=Steel Hoe
+
+#-#-#-#-#-|ITEMS - WARFARE|-#-#-#-#-#
+
+item.itemblock_control_panel.name=Control Panel
+item.itemblock_support_frame.name=Support Frame
+
+item.nail_gun.name=Nail Gun
+item.nail_gun_magazine.name=Nail Gun Magazine
+item.compressor.name=Compressor
+
+item.location_linker.name=Location Linker
+
+item.stock.name=Stock
+item.handle.name=Handle
+item.barrel.name=Barrel
+
+item.shotgun.name=Shotgun
+item.bullet.name=Bullet
+
+item.missile.name=Missile
+
+#-#-#-#-#-|BLOCKS - MAIN|-#-#-#-#-#
+
+tile.limestone_ore.name=Limestone Ore
+tile.quartz_ore.name=Quartz Ore
+tile.sulfur_ore.name=Sulfur Ore
+tile.uranium_ore.name=Uranium Ore
+
+tile.steel_block.name=Steel Block
+
+#-#-#-#-#-|BLOCKS - WARFARE|-#-#-#-#-#
+
+tile.concrete_0.name=Concrete
+tile.concrete_1.name=Hardened Concrete
+tile.concrete_2.name=Reinforced Concrete
+tile.reinforced_glass_0.name=Reinforced Glass
+
+tile.basic.name=Basic Explosive
+tile.emp.name=EMP Explosive
+tile.pyro.name=Pyrotechnics Explosive
+tile.chemical.name=Chemical Explosive
+tile.atomic.name=Atomic Explosive
+
+tile.sentry_turret.name=Sentry Turret
+tile.missile_factory.name=Missile Factory
+
+tile.launch_pad.name=Launch Pad
+tile.control_panel.name=Control Panel
+tile.support_frame_1.name=Support Frame
+
+#-#-#-#-#-FLUIDS-#-#-#-#-#
+
+fluid.concrete_mix=Concrete Mix
+tile.concrete_mix.name=Concrete Mix
+
+fluid.liquid_glass=Liquid Glass
+tile.liquid_glass.name=Liquid Glass
+
+#-#-#-#-#-CONFIG-#-#-#-#-#
+
+category.general_options.name=General Options
+category.client.name=Client
+category.gen.name=World Gen
+category.warfare.name=Warfare

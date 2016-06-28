@@ -1,0 +1,16 @@
+[
+{
+  "modid": "FissionWarfare",
+  "name": "Fission Warfare",
+  "description": "",
+  "version": "1.7.10-1.0.0",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Calemi","Kryto627","Flakeybisquik"],
+  "credits": "",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
