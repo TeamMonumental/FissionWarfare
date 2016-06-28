@@ -22,7 +22,7 @@ public class ExplosionUtil {
 			for (int pitch = -90; pitch <= 90; pitch += step) {
 
 				Angle2d angle = new Angle2d(pitch, yaw);
-				generateExplosionRay(vector, angle, world, size);
+				effectedBlocks.addAll(generateExplosionRay(vector, angle, world, size));
 			}
 		}
 		
@@ -31,32 +31,18 @@ public class ExplosionUtil {
 	
 	public static void generateExplosion(World world, Vector3d vector, double size, int step) {
 		
-		effectedBlocks.clear();
-		
 		for (int yaw = 0; yaw < 360; yaw += step) {
 
 			for (int pitch = -90; pitch <= 90; pitch += step) {
 
 				Angle2d angle = new Angle2d(pitch, yaw);
-				generateExplosionRay(vector, angle, world, size);
+				List<Location> list = generateExplosionRay(vector, angle, world, size);
+				
+				for (Location location : effectedBlocks) {
+					processBlock(location);
+				}
 			}
 		}
-		
-		for (Location location : effectedBlocks) {
-			processBlock(location);
-		}
-	}
-	
-	private static boolean contains(Location location) {
-		
-		for (Location loc : effectedBlocks) {
-			
-			if (loc.matches(location)) {
-				return true;
-			}
-		}
-		
-		return false;
 	}
 	
 	private static void processBlock(Location location) {	
@@ -64,7 +50,9 @@ public class ExplosionUtil {
 		location.setBlockToAir();		
 	}
 
-	private static void generateExplosionRay(Vector3d vector, Angle2d angle, World world, double distance) {
+	private static List<Location> generateExplosionRay(Vector3d vector, Angle2d angle, World world, double distance) {
+		
+		List<Location> list = new ArrayList<Location>();
 		
 		Vector3d velcity = vector.getVectorFromAngle(angle);
 		Vector3d raytrace = vector.copy();
@@ -81,12 +69,10 @@ public class ExplosionUtil {
 			if (loc.getBlock() instanceof IReinforcedBlock) {
 				break;
 			}
-				
-			if (!contains(loc)) {
-										
-				effectedBlocks.add(loc);
-			}
 			
+			list.add(loc);
 		}
+		
+		return list;
 	}
 }
