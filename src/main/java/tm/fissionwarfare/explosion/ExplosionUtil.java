@@ -38,7 +38,7 @@ public class ExplosionUtil {
 				Angle2d angle = new Angle2d(pitch, yaw);
 				List<Location> list = generateExplosionRay(vector, angle, world, size);
 				
-				for (Location location : effectedBlocks) {
+				for (Location location : list) {
 					processBlock(location);
 				}
 			}
