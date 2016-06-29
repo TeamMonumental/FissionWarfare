@@ -4,12 +4,16 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import tm.fissionwarfare.init.InitTabs;
+import tm.fissionwarfare.tileentity.machine.TileEntityTurretBase;
 import tm.fissionwarfare.tileentity.machine.TileEntityTurretSentry;
 
-public class BlockSentryTurret extends BlockContainerBase {
+public class BlockTurret extends BlockContainerBase {
 
-	public BlockSentryTurret() {
-		super("sentry_turret", "steel_block", Material.iron, 2, 15, 1, Block.soundTypeMetal);
+	public Class tileEntity;
+	
+	public BlockTurret(String name, Class tileEntity) {
+		super(name + "_turret", "steel_block", Material.iron, 2, 15, 1, Block.soundTypeMetal);
+		this.tileEntity = tileEntity;
 		setBounds(1.5F, 0, 1.5F, 14.5F, 8, 14.5F);
 		setCreativeTab(InitTabs.tabWarfare);
 	}
@@ -31,6 +35,15 @@ public class BlockSentryTurret extends BlockContainerBase {
 	
 	@Override
 	public TileEntity getTileEntity(int meta) {
-		return new TileEntityTurretSentry();
-	}	
+		
+		try {
+			return (TileEntity) tileEntity.newInstance();
+		}
+		
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }

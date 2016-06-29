@@ -26,7 +26,8 @@ public class ItemMissile extends ItemBase {
 		
 		if (missileData.getExplosionType() != null) list.add(EnumChatFormatting.GOLD + "Type: " + EnumChatFormatting.AQUA + missileData.getExplosionType().getName());
 		list.add(EnumChatFormatting.GOLD + "Accuracy Tier: " + EnumChatFormatting.AQUA + missileData.getAccuracyTier());
-		list.add(EnumChatFormatting.GOLD + "Fuel Tier: " + EnumChatFormatting.AQUA + missileData.getFuelTier() + " (Max Distance: " + missileData.getMaxBlockDistance() + ")");		
+		list.add(EnumChatFormatting.GOLD + "Fuel Tier: " + EnumChatFormatting.AQUA + missileData.getFuelTier() + " (Max Distance: " + missileData.getMaxBlockDistance() + ")");
+		list.add(EnumChatFormatting.GOLD + "Armor Tier: " + EnumChatFormatting.AQUA + missileData.getArmorTier());	
 		list.add("");
 		
 		if (ItemLoreUtil.addShiftLore(list)) {
@@ -46,7 +47,9 @@ public class ItemMissile extends ItemBase {
 				MissileData data = MissileData.getDataFromItem(stack);
 			
 				data.setAccuracyTier(i);
-				data.setFuelTier(i);			
+				data.setFuelTier(i);
+				data.setArmorTier(i);
+				
 				data.setExplosionType(type);
 			
 				list.add(MissileData.setDataToItem(stack, data));				

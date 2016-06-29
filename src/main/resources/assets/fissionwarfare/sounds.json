@@ -10,7 +10,7 @@
 	
 	"shotgun_fire": { "category": "master", "sounds": [{ "name": "shotgun_fire", "stream": false }] },
 	
-	"turret_blast": { "category": "master", "sounds": [{ "name": "turret_blast", "stream": false }] },
+	"turret_fire": { "category": "master", "sounds": [{ "name": "turret_fire", "stream": false }] },
 	
 	"launch": { "category": "master", "sounds": [{ "name": "launch", "stream": false }] },	
 	"missile_start": { "category": "master", "sounds": [{ "name": "missile_start", "stream": false }] },

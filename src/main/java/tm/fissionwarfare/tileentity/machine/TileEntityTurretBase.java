@@ -74,6 +74,7 @@ public abstract class TileEntityTurretBase extends TileEntityEnergyBase implemen
 				checkTarget();
 				
 				if (canFire() && hasEnergyAndAmmo()) {
+					
 					fire();
 					
 					storage.extractEnergy(getEnergyCost(), false);
@@ -99,12 +100,13 @@ public abstract class TileEntityTurretBase extends TileEntityEnergyBase implemen
 		}	
 	}
 	
-	public abstract int getEnergyCost();
-	
 	public abstract Entity findTarget();
 	public abstract void checkTarget();
 	public abstract boolean canFire();
 	public abstract void fire();
+	
+	public abstract String getName();
+	public abstract int getEnergyCost();
 	
 	public boolean hasEnergyAndAmmo() {
 		
@@ -177,11 +179,6 @@ public abstract class TileEntityTurretBase extends TileEntityEnergyBase implemen
 	}
 	
 	@Override
-	public int getMaxProgress() {
-		return 20 * 5;
-	}
-	
-	@Override
 	public int getSizeInventory() {
 		return 1;
 	}
@@ -194,7 +191,7 @@ public abstract class TileEntityTurretBase extends TileEntityEnergyBase implemen
 	@Override
 	@SideOnly(Side.CLIENT)
 	public GuiContainer getTileGuiContainer(EntityPlayer player) {
-		return new GuiTurret(player, this);
+		return new GuiTurret(getName(), player, this);
 	}
 
 	@Override

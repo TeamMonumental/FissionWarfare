@@ -66,21 +66,20 @@ public class TileEntityMissileFactory extends TileEntityEnergyBase {
 			data.setExplosionType(((BlockExplosive)Block.getBlockFromItem(slots[0].getItem())).getExplosion());
 			data.setAccuracyTier(slots[1].getItemDamage() + 1);
 			data.setFuelTier(slots[2].getItemDamage() + 1);
+			data.setArmorTier(slots[3].getItemDamage() + 1);
 			
 			setInventorySlotContents(4, MissileData.setDataToItem(stack, data));
 						
-			for (int i = 0; i < 3; i++) {
+			for (int i = 0; i < 4; i++) {
 				decrStackSize(i, 1);
 			}
-			
-			decrStackSize(3, 16);
 		}
 	}
 	
 	public boolean isReady() {
 		
 		if (hasItems()) {
-			energyCost = ((slots[1].getItemDamage() + 1) * 20000) + ((slots[2].getItemDamage() + 1) * 20000);
+			energyCost = ((slots[1].getItemDamage() + 1) * 20000) + ((slots[2].getItemDamage() + 1) * 20000) + ((slots[3].getItemDamage() + 1) * 20000);
 		}
 		
 		else {
@@ -88,12 +87,12 @@ public class TileEntityMissileFactory extends TileEntityEnergyBase {
 			return false;
 		}
 			
-		return slots[3] != null && slots[3].stackSize >= 16 && slots[4] == null && canExtractEnergy(energyCost);
+		return slots[4] == null && canExtractEnergy(energyCost);
 	}
 	
 	public boolean hasItems() {
 			
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 4; i++) {
 			
 			if (slots[i] == null) {
 				return false;

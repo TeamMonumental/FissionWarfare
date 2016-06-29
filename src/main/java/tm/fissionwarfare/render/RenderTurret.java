@@ -7,6 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import tm.fissionwarfare.Reference;
+import tm.fissionwarfare.tileentity.machine.TileEntityTurretBase;
 import tm.fissionwarfare.tileentity.machine.TileEntityTurretSentry;
 
 public class RenderTurret extends RenderTileEntityBase {
@@ -18,7 +19,7 @@ public class RenderTurret extends RenderTileEntityBase {
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z,	float meta) {
 				
-		TileEntityTurretSentry turret = (TileEntityTurretSentry)tileEntity;
+		TileEntityTurretBase turret = (TileEntityTurretBase)tileEntity;
 			
 		GL11.glPushMatrix();
 		

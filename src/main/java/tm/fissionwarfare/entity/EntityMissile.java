@@ -25,6 +25,8 @@ import tm.fissionwarfare.util.math.Vector3d;
 
 public class EntityMissile extends Entity implements IEntityAdditionalSpawnData, ISoundSource {
 	
+	public int health = 5;
+	
 	public enum MissileState {
 		LAUNCHING, GOING_UP, GOING_DOWN
 	}
@@ -52,7 +54,11 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 	public void onUpdate() {		
 		super.onUpdate();
 		
+		System.out.println(health);
+		
 		MissileData missileData = MissileData.getDataFromItem(missileStack);
+		
+		health = missileData.getArmorTier() * 3;
 		
 		int speed = (missileData.getFuelTier() + 1);
 		
@@ -60,24 +66,9 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 		
 		moveEntity(motionX, motionY, motionZ);
 		
-		if (state == MissileState.GOING_DOWN && onGround) {		
-			
-			if (missileData != null && missileData.getExplosionType() != null) {
-				
-				IExplosionType explosion = missileData.getExplosionType().getExplosionType();
-												
-				explosion.setup(worldObj, getVector());
-					
-				if (!worldObj.isRemote) {
-					
-					explosion.doBlockDamage();
-					explosion.doPlayerDamage();
-				}
-			
-				explosion.doEffects();		
-			}
-			
-			setDead();
+		if ((state == MissileState.GOING_DOWN && onGround) || health <= 0) {		
+									
+			explode(missileData);
 		}
 		
 		if (state == MissileState.LAUNCHING && motionY < 3) {
@@ -111,6 +102,26 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 		if (worldObj.isRemote) {
 			doEffects();
 		}
+	}
+	
+	private void explode(MissileData missileData) {
+		
+		if (missileData != null && missileData.getExplosionType() != null) {
+			
+			IExplosionType explosion = missileData.getExplosionType().getExplosionType();
+			
+			explosion.setup(worldObj, getVector());
+		
+			if (!worldObj.isRemote) {
+			
+				explosion.doBlockDamage();
+				explosion.doPlayerDamage();
+			}
+	
+			explosion.doEffects();
+		}
+		
+		setDead();		
 	}
 	
 	@SideOnly(Side.CLIENT)	
@@ -174,6 +185,8 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound tag) {
 
+		health = tag.getInteger("health");
+		
 		targetX = tag.getInteger("targetX");
 		targetZ = tag.getInteger("targetZ");
 		
@@ -186,6 +199,8 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound tag) {
+		
+		tag.setInteger("health", health);
 		
 		tag.setInteger("targetX", targetX);
 		tag.setInteger("targetZ", targetZ);

@@ -38,8 +38,11 @@ public class InitItems {
 	
 	public static Item lightning_rod;
 	public static Item iron_frame;
+	
 	public static Item circuit;
 	public static Item fuel_canister;
+	public static Item plating;
+	
 	public static Item motor;	
 	
 	public static Item nail;
@@ -90,8 +93,11 @@ public class InitItems {
 		
 		lightning_rod = new ItemBase("lightning_rod");
 		iron_frame = new ItemBase("iron_frame");
+		
 		circuit = new ItemTiered("circuit", 3);
 		fuel_canister = new ItemTiered("fuel_canister", 3);		
+		plating = new ItemTiered("plating", 3);
+		
 		motor = new ItemBase("motor");
 		
 		nail = new ItemBase("nail");		

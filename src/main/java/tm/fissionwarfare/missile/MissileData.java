@@ -9,12 +9,15 @@ public class MissileData {
 
 	private int accuracyTier = 0;
 	private int fuelTier = 0;
+	private int armorTier = 0;
+	
 	private EnumExplosionType explosionType;
 
 	public void readFromNBT(NBTTagCompound nbt) {
 
 		accuracyTier = nbt.getInteger("accuracy");
 		fuelTier = nbt.getInteger("speed");
+		armorTier = nbt.getInteger("armor");
 
 		if (nbt.hasKey("explosionType")) {
 			explosionType = EnumExplosionType.valueOf(nbt.getString("explosionType"));
@@ -29,6 +32,7 @@ public class MissileData {
 
 		nbt.setInteger("accuracy", accuracyTier);
 		nbt.setInteger("speed", fuelTier);
+		nbt.setInteger("armor", armorTier);
 
 		if (explosionType != null) {
 			nbt.setString("explosionType", explosionType.name());
@@ -42,6 +46,10 @@ public class MissileData {
 	public void setFuelTier(int fuel) {
 		this.fuelTier = fuel;
 	}
+	
+	public void setArmorTier(int armor) {
+		this.armorTier = armor;
+	}
 
 	public void setExplosionType(EnumExplosionType explosionType) {
 		this.explosionType = explosionType;
@@ -53,6 +61,10 @@ public class MissileData {
 
 	public int getFuelTier() {
 		return fuelTier;
+	}
+	
+	public int getArmorTier() {
+		return armorTier;
 	}
 
 	public EnumExplosionType getExplosionType() {

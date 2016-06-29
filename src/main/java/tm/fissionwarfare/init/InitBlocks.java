@@ -13,8 +13,11 @@ import tm.fissionwarfare.block.BlockMissileFactory;
 import tm.fissionwarfare.block.BlockOreBase;
 import tm.fissionwarfare.block.BlockReinforcedGlass;
 import tm.fissionwarfare.block.BlockSupportFrame;
-import tm.fissionwarfare.block.BlockSentryTurret;
+import tm.fissionwarfare.block.BlockTurret;
 import tm.fissionwarfare.explosion.type.EnumExplosionType;
+import tm.fissionwarfare.tileentity.machine.TileEntityTurretBase;
+import tm.fissionwarfare.tileentity.machine.TileEntityTurretMissile;
+import tm.fissionwarfare.tileentity.machine.TileEntityTurretSentry;
 
 public class InitBlocks {
 
@@ -35,6 +38,7 @@ public class InitBlocks {
 	public static Block atomicExplosive;
 	
 	public static Block sentry_turret;
+	public static Block missile_turret;
 	
 	public static Block missile_factory;
 	
@@ -63,7 +67,8 @@ public class InitBlocks {
 		chemicalExplosive = new BlockExplosive("chemical", EnumExplosionType.CHEMICAL);
 		atomicExplosive = new BlockExplosive("atomic", EnumExplosionType.ATOMIC);
 		
-		sentry_turret = new BlockSentryTurret();
+		sentry_turret = new BlockTurret("sentry", TileEntityTurretSentry.class);
+		missile_turret = new BlockTurret("missile", TileEntityTurretMissile.class);
 		
 		missile_factory = new BlockMissileFactory();
 		

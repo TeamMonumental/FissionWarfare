@@ -6,6 +6,7 @@ import tm.fissionwarfare.tileentity.machine.TileEntityControlPanel;
 import tm.fissionwarfare.tileentity.machine.TileEntityLaunchPad;
 import tm.fissionwarfare.tileentity.machine.TileEntityLaunchPad;
 import tm.fissionwarfare.tileentity.machine.TileEntityMissileFactory;
+import tm.fissionwarfare.tileentity.machine.TileEntityTurretMissile;
 import tm.fissionwarfare.tileentity.machine.TileEntityTurretSentry;
 
 public class InitTileEntities {
@@ -15,6 +16,7 @@ public class InitTileEntities {
 		GameRegistry.registerTileEntity(TileEntityMissileFactory.class, Reference.MOD_ID + ":tileMissileFactory");
 		GameRegistry.registerTileEntity(TileEntityLaunchPad.class, Reference.MOD_ID + ":tileLaunchPad");
 		GameRegistry.registerTileEntity(TileEntityControlPanel.class, Reference.MOD_ID + ":tileEntityControlPanel");
-		GameRegistry.registerTileEntity(TileEntityTurretSentry.class, Reference.MOD_ID + ":tileEntityTurret");
+		GameRegistry.registerTileEntity(TileEntityTurretSentry.class, Reference.MOD_ID + ":tileEntityTurretSentry");
+		GameRegistry.registerTileEntity(TileEntityTurretMissile.class, Reference.MOD_ID + ":tileEntityTurretMissile");
 	}
 }

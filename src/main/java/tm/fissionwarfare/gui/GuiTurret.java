@@ -8,10 +8,13 @@ import tm.fissionwarfare.tileentity.base.TileEntityEnergyBase;
 
 public class GuiTurret extends GuiEnergyContainerBase {
 
+	private String name;
+	
 	private GuiToggleButton toggleButton;
 	
-	public GuiTurret(EntityPlayer player, TileEntityEnergyBase tileEntity) {
+	public GuiTurret(String name, EntityPlayer player, TileEntityEnergyBase tileEntity) {
 		super(new ContainerTurret(player, tileEntity), player, tileEntity);
+		this.name = name;
 	}
 
 	@Override
@@ -21,7 +24,7 @@ public class GuiTurret extends GuiEnergyContainerBase {
 
 	@Override
 	public String getGuiTitle() {
-		return "Turret";
+		return name + " Turret";
 	}
 	
 	@Override

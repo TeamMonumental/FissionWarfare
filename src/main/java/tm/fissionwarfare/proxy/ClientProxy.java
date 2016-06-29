@@ -29,6 +29,7 @@ import tm.fissionwarfare.render.item.ItemRenderShotgun;
 import tm.fissionwarfare.render.item.ItemRenderTurret;
 import tm.fissionwarfare.tileentity.machine.TileEntityControlPanel;
 import tm.fissionwarfare.tileentity.machine.TileEntityLaunchPad;
+import tm.fissionwarfare.tileentity.machine.TileEntityTurretMissile;
 import tm.fissionwarfare.tileentity.machine.TileEntityTurretSentry;
 
 public class ClientProxy extends CommonProxy {
@@ -49,11 +50,15 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.registerItemRenderer(InitItems.shotgun, new ItemRenderShotgun());
 		
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(InitBlocks.sentry_turret), new ItemRenderTurret());
+		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(InitBlocks.missile_turret), new ItemRenderTurret());
+		
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(InitBlocks.launch_pad), new ItemRenderLaunchPad());
 		
 		MinecraftForgeClient.registerItemRenderer(InitItems.missile, new ItemRenderMissile());
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTurretSentry.class, new RenderTurret());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTurretMissile.class, new RenderTurret());
+		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLaunchPad.class, new RenderLaunchPad());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityControlPanel.class, new RenderControlPanel());
 		
