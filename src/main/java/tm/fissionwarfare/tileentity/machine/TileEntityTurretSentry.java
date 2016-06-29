@@ -94,7 +94,7 @@ public class TileEntityTurretSentry extends TileEntityTurretBase {
 
 	@Override
 	public int getEnergyCost() {
-		return 1000;
+		return 10000;
 	}
 
 	@Override
@@ -105,5 +105,10 @@ public class TileEntityTurretSentry extends TileEntityTurretBase {
 	@Override
 	public int getMaxProgress() {
 		return 20;
+	}
+
+	@Override
+	public int getMaxEnergy() {
+		return 100000;
 	}
 }

@@ -162,11 +162,6 @@ public abstract class TileEntityTurretBase extends TileEntityEnergyBase implemen
 	public AxisAlignedBB getRenderBoundingBox() {
 		return AxisAlignedBB.getBoundingBox(xCoord - 1F, yCoord, zCoord - 1F, xCoord + 2F, yCoord + 2F, zCoord + 2F);
 	}
-	
-	@Override
-	public int getMaxEnergy() {
-		return 100000;
-	}
 
 	@Override
 	public int getMaxReceive() {

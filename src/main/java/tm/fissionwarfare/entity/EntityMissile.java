@@ -48,6 +48,8 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 		this.missileStack = missileStack;
 		this.targetX = targetX;
 		this.targetZ = targetZ;
+		MissileData missileData = MissileData.getDataFromItem(missileStack);
+		health = missileData.getArmorTier() * 3;
 	}
 
 	@Override
@@ -176,10 +178,6 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 	@Override
 	protected void entityInit() {
 		
-		if(!worldObj.isRemote){
-			MissileData missileData = MissileData.getDataFromItem(missileStack);
-			health = missileData.getArmorTier() * 3;
-		}
 		
 		if (worldObj.isRemote) {
 			SoundHelper.playSound(getSound());

@@ -13,8 +13,8 @@ import tm.fissionwarfare.util.math.RaytraceUtil.HitType;
 
 public class TileEntityTurretMissile extends TileEntityTurretBase {
 
-	public static final int RANGE = 200;
-	public static final float DAMAGE = 3;
+	public static final int RANGE = 150;
+	public static final float DAMAGE = 1.0F;
 	
 	@Override
 	public Entity findTarget() {
@@ -72,7 +72,7 @@ public class TileEntityTurretMissile extends TileEntityTurretBase {
 
 	@Override
 	public int getEnergyCost() {
-		return 1000;
+		return 1000000;
 	}
 	
 	@Override
@@ -82,6 +82,11 @@ public class TileEntityTurretMissile extends TileEntityTurretBase {
 	
 	@Override
 	public int getMaxProgress() {
-		return 20;
+		return 10;
+	}
+
+	@Override
+	public int getMaxEnergy() {
+		return 10000000;
 	}
 }
