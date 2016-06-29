@@ -1,7 +1,10 @@
 package tm.fissionwarfare.itemblock;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+import tm.fissionwarfare.block.BlockReinforced;
 
 public class ItemBlockReinforced extends ItemBlockMeta {
 
@@ -13,12 +16,14 @@ public class ItemBlockReinforced extends ItemBlockMeta {
 	public String getUnlocalizedName(ItemStack is) {
 		
 		int meta = is.getItemDamage();
-		int i;
-				
-		if (meta > 9) i = 2;
-		else if (meta > 4) i = 1;
-		else i = 0;
 		
-		return getUnlocalizedName() + "_" + i;
-	}
+		int num = 0;
+			
+		for (int i = 1; i <= 10; i++) {
+				
+			if (meta >= i * 5) num = i;
+		}	
+				
+		return getUnlocalizedName() + "_" + num;
+	}	
 }

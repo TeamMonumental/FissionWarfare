@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.world.World;
-import tm.fissionwarfare.api.IReinforcedBlock;
+import tm.fissionwarfare.block.BlockReinforced;
 import tm.fissionwarfare.util.math.Angle2d;
 import tm.fissionwarfare.util.math.Location;
 import tm.fissionwarfare.util.math.Vector3d;
@@ -66,7 +66,7 @@ public class ExplosionUtil {
 				break;
 			}
 			
-			if (loc.getBlock() instanceof IReinforcedBlock) {
+			if (loc.getBlock() instanceof BlockReinforced) {
 				break;
 			}
 			

@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import tm.fissionwarfare.Reference;
 import tm.fissionwarfare.api.IExplosiveBlock;
@@ -14,9 +15,10 @@ import tm.fissionwarfare.entity.EntityExplosive;
 import tm.fissionwarfare.entity.EntityMissile;
 import tm.fissionwarfare.explosion.type.EnumExplosionType;
 import tm.fissionwarfare.init.InitTabs;
+import tm.fissionwarfare.proxy.ClientProxy;
 
 public class BlockExplosive extends BlockBase implements IExplosiveBlock {
-	
+		
 	private EnumExplosionType explosion;
 
 	public BlockExplosive(String imagePath, EnumExplosionType explosion) {
@@ -39,12 +41,6 @@ public class BlockExplosive extends BlockBase implements IExplosiveBlock {
 			activate(world, x, y, z);
 		}
 	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconReg) {
-		blockIcon = iconReg.registerIcon(Reference.MOD_ID + ":explosives/" + imageName);
-	}
 	
 	public void activate(World world, int x, int y, int z) {	
 		
@@ -57,5 +53,12 @@ public class BlockExplosive extends BlockBase implements IExplosiveBlock {
 	@Override
 	public EnumExplosionType getExplosion() {
 		return explosion;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconReg) {
+		
+		blockIcon = iconReg.registerIcon(Reference.MOD_ID + ":explosives/" + imageName);		
 	}
 }

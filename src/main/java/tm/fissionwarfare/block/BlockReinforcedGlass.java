@@ -11,12 +11,17 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import tm.fissionwarfare.itemblock.ItemBlockReinforced;
 
-public class BlockReinforcedGlass extends BlockReinforced {
+/*public class BlockReinforcedGlass extends BlockReinforced {
 
 	public BlockReinforcedGlass() {
 		super("reinforced_glass");
 	}
 
+	@Override
+	public boolean hasBrokenParticles() {
+		return false;
+	}
+	
 	@Override
 	public int getMaxMeta() {
 		return 4;
@@ -66,4 +71,4 @@ public class BlockReinforcedGlass extends BlockReinforced {
 		
 		return super.getDrops(world, x, y, z, metadata, fortune);
 	}
-}
+}*/

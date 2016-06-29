@@ -5,17 +5,15 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import tm.fissionwarfare.block.BlockBase;
-import tm.fissionwarfare.block.BlockConcrete;
 import tm.fissionwarfare.block.BlockControlPanel;
 import tm.fissionwarfare.block.BlockExplosive;
 import tm.fissionwarfare.block.BlockLaunchPad;
 import tm.fissionwarfare.block.BlockMissileFactory;
 import tm.fissionwarfare.block.BlockOreBase;
-import tm.fissionwarfare.block.BlockReinforcedGlass;
+import tm.fissionwarfare.block.BlockReinforced;
 import tm.fissionwarfare.block.BlockSupportFrame;
 import tm.fissionwarfare.block.BlockTurret;
 import tm.fissionwarfare.explosion.type.EnumExplosionType;
-import tm.fissionwarfare.tileentity.machine.TileEntityTurretBase;
 import tm.fissionwarfare.tileentity.machine.TileEntityTurretMissile;
 import tm.fissionwarfare.tileentity.machine.TileEntityTurretSentry;
 
@@ -59,8 +57,8 @@ public class InitBlocks {
 		
 		//Warfare
 		
-		concrete = new BlockConcrete();
-		reinforced_glass = new BlockReinforcedGlass();
+		concrete = new BlockReinforced("concrete", 3, true, true);
+		reinforced_glass = new BlockReinforced("reinforced_glass", 1, false, false);
 		
 		basicExplosive = new BlockExplosive("basic", EnumExplosionType.BASIC);
 		empExplosive = new BlockExplosive("emp", EnumExplosionType.EMP);

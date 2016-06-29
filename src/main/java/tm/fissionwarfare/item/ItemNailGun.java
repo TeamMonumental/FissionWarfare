@@ -2,27 +2,21 @@ package tm.fissionwarfare.item;
 
 import java.util.List;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import tm.fissionwarfare.FissionWarfare;
-import tm.fissionwarfare.block.BlockConcrete;
 import tm.fissionwarfare.config.FWConfig;
 import tm.fissionwarfare.init.InitBlocks;
 import tm.fissionwarfare.init.InitItems;
 import tm.fissionwarfare.init.InitTabs;
 import tm.fissionwarfare.packet.ClientPacketHandler;
-import tm.fissionwarfare.sounds.FWSound;
-import tm.fissionwarfare.util.ChatUtil;
 import tm.fissionwarfare.util.ItemLoreUtil;
 import tm.fissionwarfare.util.NBTUtil;
 import tm.fissionwarfare.util.UnitChatMessage;
-import tm.fissionwarfare.util.math.MathUtil;
 
 public class ItemNailGun extends ItemBase {
 
@@ -153,7 +147,7 @@ public class ItemNailGun extends ItemBase {
 
 					player.inventory.markDirty();
 
-					world.setBlockMetadataWithNotify(x, y, z, meta + ((meta == BlockConcrete.metaTiers[0] || meta == BlockConcrete.metaTiers[1]) ? 5 : 1), 2);
+					//world.setBlockMetadataWithNotify(x, y, z, meta + ((meta == BlockConcrete.metaTiers[0] || meta == BlockConcrete.metaTiers[1]) ? 5 : 1), 2);
 					FissionWarfare.network.sendTo(new ClientPacketHandler("playsound%random.anvil_land%" + x + "%" + y + "%" + z + "%" + 0.1F), (EntityPlayerMP) player);
 
 					return true;

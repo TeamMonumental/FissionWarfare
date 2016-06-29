@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.world.World;
 import tm.fissionwarfare.api.IExplosionType;
 import tm.fissionwarfare.entity.EntityShockwave;
-import tm.fissionwarfare.explosion.ConcreteUtil;
+import tm.fissionwarfare.explosion.ReinforcedBlocksUtil;
 import tm.fissionwarfare.explosion.ExplosionUtil;
 import tm.fissionwarfare.explosion.PlayerExplosionUtil;
 import tm.fissionwarfare.sounds.FWSound;
@@ -31,7 +31,7 @@ public class AtomicExplosion extends BasicExplosion implements IExplosionType {
 	@Override
 	public void doBlockDamage() {
 
-		ConcreteUtil.generateShockwave(new Location(world, vector), SIZE, 4);
+		ReinforcedBlocksUtil.generateShockwave(new Location(world, vector), SIZE, 4);
 		ExplosionUtil.generateExplosion(world, vector, SIZE, 2);
 	}
 

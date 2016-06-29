@@ -22,6 +22,7 @@ import tm.fissionwarfare.render.RenderControlPanel;
 import tm.fissionwarfare.render.RenderExplosive;
 import tm.fissionwarfare.render.RenderLaunchPad;
 import tm.fissionwarfare.render.RenderMissile;
+import tm.fissionwarfare.render.RenderReinforcedBlock;
 import tm.fissionwarfare.render.RenderTurret;
 import tm.fissionwarfare.render.item.ItemRenderLaunchPad;
 import tm.fissionwarfare.render.item.ItemRenderMissile;
@@ -33,6 +34,8 @@ import tm.fissionwarfare.tileentity.machine.TileEntityTurretMissile;
 import tm.fissionwarfare.tileentity.machine.TileEntityTurretSentry;
 
 public class ClientProxy extends CommonProxy {
+	
+	public static final int REINFORCED_RENDER_ID = 64;
 	
 	@Override
 	public void registerRenders() {
@@ -61,6 +64,8 @@ public class ClientProxy extends CommonProxy {
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLaunchPad.class, new RenderLaunchPad());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityControlPanel.class, new RenderControlPanel());
+		
+		RenderingRegistry.registerBlockHandler(REINFORCED_RENDER_ID, new RenderReinforcedBlock());
 		
 		Reference.armorIDCompressor = addArmor("compressor");
 	}

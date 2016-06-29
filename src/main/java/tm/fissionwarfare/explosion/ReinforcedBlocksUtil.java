@@ -3,32 +3,30 @@ package tm.fissionwarfare.explosion;
 import java.util.List;
 
 import net.minecraft.block.Block;
-import tm.fissionwarfare.api.IReinforcedBlock;
+import tm.fissionwarfare.block.BlockReinforced;
 import tm.fissionwarfare.util.math.Location;
 import tm.fissionwarfare.util.math.ShapeUtil;
 
-public class ConcreteUtil {
+public class ReinforcedBlocksUtil {
 
 	public static void generateShockwave(Location location, int r, int damage) {
 		
 		List<Location> list = ShapeUtil.getSphere(location, r);
 		
 		for (Location loc : list) {
-			breakConcrete(loc, damage);
+			damageReinforcedBlocks(loc, damage);
 		}
 	}
 	
-	public static void breakConcrete(Location location, int damage) {
+	public static void damageReinforcedBlocks(Location location, int damage) {
 		
 		Block block = location.getBlock();
 		int currentMeta = location.getMetadata();
 		int newMeta = currentMeta - damage;
 		
-		if (block instanceof IReinforcedBlock) {
+		if (block instanceof BlockReinforced) {
 			
-			IReinforcedBlock concrete = (IReinforcedBlock) block;
-			
-			if (newMeta < 0) {
+			if (newMeta < 1) {
 				
 				location.setBlockToAir();
 			}
