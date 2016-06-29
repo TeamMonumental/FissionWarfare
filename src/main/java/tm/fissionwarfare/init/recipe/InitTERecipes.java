@@ -1,6 +1,7 @@
 package tm.fissionwarfare.init.recipe;
 
 import cofh.api.modhelpers.ThermalExpansionHelper;
+import cofh.thermalfoundation.item.TFItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -26,6 +27,12 @@ public class InitTERecipes {
 		ThermalExpansionHelper.addPulverizerRecipe(2000, new ItemStack(InitItems.radioactive_chunk), new ItemStack(Blocks.cobblestone), new ItemStack(InitItems.uranium_pellet), 20);
 		
 		ThermalExpansionHelper.addSmelterRecipe(1000, new ItemStack(InitItems.steel_ingot), new ItemStack(InitItems.steel_ingot), new ItemStack(InitItems.steel_plate));
+		
+		ThermalExpansionHelper.addSmelterRecipe(1000, new ItemStack(TFItems.ingotInvar.getItem(), 10, TFItems.ingotInvar.getItemDamage()), new ItemStack(InitItems.steel_plate), new ItemStack(InitItems.plating, 1, 0));
+		
+		ThermalExpansionHelper.addSmelterRecipe(1000, new ItemStack(TFItems.ingotElectrum.getItem(), 10, TFItems.ingotElectrum.getItemDamage()), new ItemStack(InitItems.plating, 1, 0), new ItemStack(InitItems.plating, 1, 1));
+		
+		ThermalExpansionHelper.addSmelterRecipe(1000, new ItemStack(TFItems.ingotEnderium.getItem(), 8, TFItems.ingotEnderium.getItemDamage()), new ItemStack(InitItems.plating, 1, 1), new ItemStack(InitItems.plating, 1, 2));
 		
 		//ThermalExpansionHelper.addPulverizerRecipe(input, output, sideoutput, energycost, rarespawn chance);
 	}

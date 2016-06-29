@@ -14,7 +14,7 @@ import tm.fissionwarfare.util.math.RaytraceUtil.HitType;
 public class TileEntityTurretMissile extends TileEntityTurretBase {
 
 	public static final int RANGE = 200;
-	public static final float DAMAGE = 1;
+	public static final float DAMAGE = 3;
 	
 	@Override
 	public Entity findTarget() {
@@ -66,7 +66,7 @@ public class TileEntityTurretMissile extends TileEntityTurretBase {
 		if (target != null && target instanceof EntityMissile) {
 
 			EntityMissile missile = (EntityMissile)target;
-			missile.health--;
+			missile.health -= DAMAGE;
 		}
 	}
 

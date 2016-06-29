@@ -82,7 +82,7 @@ public abstract class TileEntityTurretBase extends TileEntityEnergyBase implemen
 					for (Object o : worldObj.loadedEntityList) {
 						
 						if (o != null && o instanceof EntityPlayerMP && ((EntityPlayer) o).getDistance(xCoord, yCoord, zCoord) <= 30) {
-							FissionWarfare.network.sendTo(new ClientPacketHandler("playsound%" + FWSound.turret_fire.getSoundPath() + "%" + xCoord + "%" + yCoord + "%" + zCoord + "%" + 3F), (EntityPlayerMP)o);
+							FissionWarfare.network.sendTo(new ClientPacketHandler("playsound%" + FWSound.turret_fire.getSoundPath() + "%" + xCoord + "%" + yCoord + "%" + zCoord + "%" + 4F), (EntityPlayerMP)o);
 						}						
 					}				
 										

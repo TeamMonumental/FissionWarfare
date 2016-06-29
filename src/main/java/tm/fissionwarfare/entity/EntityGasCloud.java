@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 public class EntityGasCloud extends Entity {
 
 	private static final double MAX_LIFE = 20 * 10;
-	private static final double DAMAGE = 3;	
+	private static final double DAMAGE = 1;	
 	private double range;
 	
 	public EntityGasCloud(World world) {

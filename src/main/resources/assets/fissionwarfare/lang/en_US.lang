@@ -26,6 +26,9 @@ item.circuit_2.name=Hyper Circuit
 item.fuel_canister_0.name=Liquid Coal Canister
 item.fuel_canister_1.name=Pyrotheum Canister
 item.fuel_canister_2.name=Cryotheum Canister
+item.plating_0.name=Invar Plating
+item.plating_1.name=Electrum Plating
+item.plating_2.name=Enderium Plating
 item.motor.name=Motor
 
 item.nail.name=Nail

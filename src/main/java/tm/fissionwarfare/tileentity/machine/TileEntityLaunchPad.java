@@ -366,7 +366,7 @@ public class TileEntityLaunchPad extends TileEntityEnergyBase implements ISecuri
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ISound getSound() {
-		return new SoundTile(this, Reference.MOD_ID + ":launch", 4, 1, true, 0, xCoord, yCoord, zCoord).setFadeOut(30);
+		return new SoundTile(this, Reference.MOD_ID + ":launch", 1, 1, true, 0, xCoord, yCoord, zCoord).setFadeOut(30);
 	}
 
 	@Override

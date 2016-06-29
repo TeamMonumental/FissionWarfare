@@ -103,6 +103,18 @@ public class InitRecipes {
 			" T ", "TBT", "TBT", 'T', TFItems.ingotSilver, 'B', TFItems.bucketCryotheum,
 		}));
 		
+		/////////////////////////////////////////////////////////PLATING\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+		
+		/*GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitItems.plating, 1, 0), new Object[] {
+			"SIS", "SIS", "SIS", 'I', TFItems.ingotInvar, 'S', InitItems.steel_plate,
+		}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitItems.plating, 1, 1), new Object[] {
+			"SES", "SES", "SES", 'E', TFItems.ingotElectrum, 'S', InitItems.steel_plate,
+		}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitItems.plating, 1, 2), new Object[] {
+			"SES", "SES", "SES", 'E', TFItems.ingotEnderium, 'S', InitItems.steel_plate,
+		}));*/
+		
 		/////////////////////////////////////////////////////////CAPSULE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitItems.fiery_capsule, 2), new Object[] {

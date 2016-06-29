@@ -25,7 +25,7 @@ import tm.fissionwarfare.util.math.Vector3d;
 
 public class EntityMissile extends Entity implements IEntityAdditionalSpawnData, ISoundSource {
 	
-	public int health = 5;
+	public int health = 3;
 	
 	public enum MissileState {
 		LAUNCHING, GOING_UP, GOING_DOWN
@@ -58,7 +58,6 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 		
 		MissileData missileData = MissileData.getDataFromItem(missileStack);
 		
-		health = missileData.getArmorTier() * 3;
 		
 		int speed = (missileData.getFuelTier() + 1);
 		
@@ -176,6 +175,11 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 	
 	@Override
 	protected void entityInit() {
+		
+		if(!worldObj.isRemote){
+			MissileData missileData = MissileData.getDataFromItem(missileStack);
+			health = missileData.getArmorTier() * 3;
+		}
 		
 		if (worldObj.isRemote) {
 			SoundHelper.playSound(getSound());
