@@ -181,8 +181,8 @@ public class InitRecipes {
 			"BSB", "BSB", "BSB", 'S', new ItemStack(InitItems.steel_plate), 'B', Blocks.iron_bars
 		}));
 		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitBlocks.steel_block, 1), new Object[] {
-			"BBB", "BBB", "BBB", 'B', new ItemStack(InitItems.steel_ingot, 1)
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitBlocks.steel_block, 32), new Object[] {
+			"SOS", "OSO", "SOS", 'S', new ItemStack(InitItems.steel_plate), 'O', Blocks.obsidian
 		}));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitItems.motor, 1), new Object[] {

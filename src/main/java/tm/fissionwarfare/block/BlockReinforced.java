@@ -63,10 +63,7 @@ public class BlockReinforced extends BlockMetaBase {
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {	
 		
-		for (int i = 1; i <= maxTiers; i++) {
-			
-			list.add(new ItemStack(item, 1, i * 5));
-		}	
+		list.add(new ItemStack(item, 1, maxTiers));
 	}
 	
 	@Override

@@ -20,7 +20,7 @@ public class InitTERecipes {
 		
 		ThermalExpansionHelper.addTransposerFill(1000, new ItemStack(InitItems.cement),	new ItemStack(InitItems.wet_cement), new FluidStack(FluidRegistry.WATER, 1000), false);
 		
-		ThermalExpansionHelper.addTransposerFill(1000, new ItemStack(InitItems.iron_frame), new ItemStack(InitBlocks.concrete, 1, 4), new FluidStack(InitFluids.concrete_mix, 1000), false);
+		ThermalExpansionHelper.addTransposerFill(1000, new ItemStack(InitItems.iron_frame), new ItemStack(InitBlocks.concrete), new FluidStack(InitFluids.concrete_mix, 1000), false);
 		
 		ThermalExpansionHelper.addTransposerFill(1000, new ItemStack(InitItems.iron_frame), new ItemStack(InitBlocks.reinforced_glass, 1, 4), new FluidStack(InitFluids.liquid_glass, 1000), false);
 		
