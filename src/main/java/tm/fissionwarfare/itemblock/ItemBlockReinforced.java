@@ -11,19 +11,4 @@ public class ItemBlockReinforced extends ItemBlockMeta {
 	public ItemBlockReinforced(Block block) {
 		super(block);
 	}
-	
-	@Override
-	public String getUnlocalizedName(ItemStack is) {
-		
-		int meta = is.getItemDamage();
-		
-		int num = 0;
-			
-		for (int i = 1; i <= 10; i++) {
-				
-			if (meta >= i * 5) num = i;
-		}	
-				
-		return getUnlocalizedName() + "_" + num;
-	}	
 }

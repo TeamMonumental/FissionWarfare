@@ -57,7 +57,7 @@ public class InitBlocks {
 		
 		steel_block = new BlockReinforced("steel_block", 3, true, true);
 		concrete = new BlockReinforced("concrete", 3, true, true);
-		reinforced_glass = new BlockReinforced("reinforced_glass", 1, false, false);
+		reinforced_glass = new BlockReinforced("reinforced_glass", 2, false, false);
 		
 		basicExplosive = new BlockExplosive("basic", EnumExplosionType.BASIC);
 		empExplosive = new BlockExplosive("emp", EnumExplosionType.EMP);

@@ -71,9 +71,9 @@ tile.steel_block.name=Steel Block
 
 #-#-#-#-#-|BLOCKS - WARFARE|-#-#-#-#-#
 
-tile.concrete.name=Concrete
-tile.steel_block.name=Steel Block
-tile.reinforced_glass.name=Reinforced Glass
+tile.concrete_3.name=Concrete
+tile.steel_block_3.name=Steel Block
+tile.reinforced_glass_2.name=Reinforced Glass
 
 tile.basic.name=Basic Explosive
 tile.emp.name=EMP Explosive
