@@ -6,7 +6,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import tm.fissionwarfare.tileentity.base.TileEntityInventoryBase;
 
-public abstract class ContainerBase extends Container {
+public class ContainerBase extends Container {
 
 	public TileEntityInventoryBase tileEntity;
 	public EntityPlayer player;
