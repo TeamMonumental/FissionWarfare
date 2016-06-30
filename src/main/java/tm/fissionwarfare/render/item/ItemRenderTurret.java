@@ -4,8 +4,8 @@ import org.lwjgl.opengl.GL11;
 
 public class ItemRenderTurret extends ItemRenderBase {
 	
-	public ItemRenderTurret() {
-		super("turret");
+	public ItemRenderTurret(String name) {
+		super(name + "_turret");
 	}
 	
 	@Override

@@ -22,8 +22,9 @@ import tm.fissionwarfare.render.RenderControlPanel;
 import tm.fissionwarfare.render.RenderExplosive;
 import tm.fissionwarfare.render.RenderLaunchPad;
 import tm.fissionwarfare.render.RenderMissile;
+import tm.fissionwarfare.render.RenderMissileTurret;
 import tm.fissionwarfare.render.RenderReinforcedBlock;
-import tm.fissionwarfare.render.RenderTurret;
+import tm.fissionwarfare.render.RenderSentryTurret;
 import tm.fissionwarfare.render.item.ItemRenderLaunchPad;
 import tm.fissionwarfare.render.item.ItemRenderMissile;
 import tm.fissionwarfare.render.item.ItemRenderShotgun;
@@ -52,15 +53,15 @@ public class ClientProxy extends CommonProxy {
 		
 		MinecraftForgeClient.registerItemRenderer(InitItems.shotgun, new ItemRenderShotgun());
 		
-		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(InitBlocks.sentry_turret), new ItemRenderTurret());
-		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(InitBlocks.missile_turret), new ItemRenderTurret());
+		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(InitBlocks.sentry_turret), new ItemRenderTurret("sentry"));
+		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(InitBlocks.missile_turret), new ItemRenderTurret("missile"));
 		
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(InitBlocks.launch_pad), new ItemRenderLaunchPad());
 		
 		MinecraftForgeClient.registerItemRenderer(InitItems.missile, new ItemRenderMissile());
 		
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTurretSentry.class, new RenderTurret());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTurretMissile.class, new RenderTurret());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTurretSentry.class, new RenderSentryTurret());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTurretMissile.class, new RenderMissileTurret());
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLaunchPad.class, new RenderLaunchPad());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityControlPanel.class, new RenderControlPanel());
