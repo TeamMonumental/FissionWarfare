@@ -18,6 +18,6 @@ public class RenderMissileTurret extends RenderTurretBase {
 
 	@Override
 	public void renderHead() {
-		model.renderOnly("Head_Cube_6", "Antenna_Cube_7", "Antenna_Top_Cube_8", "Bar_1_Cube_9", "Bar_2_Cube_10", "Holder_Cube_11", "Barrel_Cube_12");
+		model.renderOnly("Head_Cube_6", "Antenna_Cube_7", "Antenna_Top_Cube_8", "Antenna_2_Cube_9", "Antenna_Top_2_Cube_10", "Bar_1_Cube_11", "Bar_2_Cube_12", "Holder_Cube_13", "Barrel_Cube_14");
 	}
 }

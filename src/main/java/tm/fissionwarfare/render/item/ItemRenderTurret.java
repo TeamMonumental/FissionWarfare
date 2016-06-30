@@ -15,7 +15,8 @@ public class ItemRenderTurret extends ItemRenderBase {
 
 	@Override
 	public void renderInventory() {
-		GL11.glTranslatef(-0.25F, -1F, 0.25F);
+		GL11.glScalef(0.9F, 0.9F, 0.9F);
+		GL11.glTranslatef(-0.15F, -1.05F, 0.15F);
 	}
 
 	@Override
