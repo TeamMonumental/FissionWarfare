@@ -46,7 +46,7 @@ public class AtomicExplosion extends BasicExplosion implements IExplosionType {
 
 		FWSound.nuke.play(world, vector.x, vector.y, vector.z, 20, 1);
 		FWSound.rumbling.play(world, vector.x, vector.y, vector.z, 20, 1);
-		FWSound.cave_in.play(world, vector.x, vector.y, vector.z, 5, 1);
+		//FWSound.cave_in.play(world, vector.x, vector.y, vector.z, 5, 1);
 
 		for (int i = 0; i < 100; i++) {
 

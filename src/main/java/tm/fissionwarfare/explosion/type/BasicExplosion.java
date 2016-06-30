@@ -13,7 +13,7 @@ import tm.fissionwarfare.util.math.Vector3d;
 
 public class BasicExplosion implements IExplosionType {
 
-	private final static int SIZE = 5;
+	private final static int SIZE = 8;
 
 	private World world;
 	private Vector3d vector;
@@ -40,7 +40,7 @@ public class BasicExplosion implements IExplosionType {
 	@Override
 	public void doEffects() {
 
-		double offset = 0.5D;
+		double offset = 4.0D;
 		double d2 = vector.y;
 
 		for (int i = 0; i < 8; i++) {

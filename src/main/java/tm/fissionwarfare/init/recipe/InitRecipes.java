@@ -161,8 +161,12 @@ public class InitRecipes {
 		
 		/////////////////////////////////////////////////////////MACHINES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitBlocks.missile_turret, 1), new Object[] {
+			"RR ", "STB", "SMB", 'S', new ItemStack(InitItems.steel_plate), 'T', new ItemStack(InitBlocks.sentry_turret), 'M', new ItemStack(InitItems.motor), 'B', new ItemStack(InitItems.barrel), 'R', Blocks.redstone_torch
+		}));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitBlocks.sentry_turret, 1), new Object[] {
-			"R  ", "MCD", "MGM", 'M', new ItemStack(TEBlocks.blockFrame, 1, 2), 'C', new ItemStack(InitItems.circuit, 1, 2), 'G', new ItemStack(InitItems.motor), 'D', Blocks.dispenser, 'R', Blocks.redstone_torch
+			"R  ", "SCB", "SMS", 'M', new ItemStack(TEBlocks.blockFrame, 1, 2), 'C', new ItemStack(InitItems.circuit, 1, 2), 'S', new ItemStack(InitItems.steel_plate), 'B', new ItemStack(InitItems.barrel), 'R', Blocks.redstone_torch
 		}));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitBlocks.missile_factory, 1), new Object[] {
