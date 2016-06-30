@@ -2,6 +2,10 @@ package tm.fissionwarfare.util.math;
 
 public class MathUtil {
 
+	public static boolean isInRange(double value, int max, int min) {		
+		return value <= max && value >= min;
+	}
+	
 	public static int scaleInt(int value, int maxValue, int maxScale) {
 		
 		float f = value * maxScale / maxValue;

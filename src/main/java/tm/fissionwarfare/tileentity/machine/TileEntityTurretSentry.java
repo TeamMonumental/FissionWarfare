@@ -8,6 +8,7 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
@@ -40,16 +41,30 @@ public class TileEntityTurretSentry extends TileEntityTurretBase {
 	public Entity findTarget() {
 
 		for (Object object : worldObj.loadedEntityList) {
-
+				
 			if (object instanceof EntityPlayer) {
 				
 				EntityPlayer player = (EntityPlayer)object;
 				
 				if (player.getDistance(xCoord, yCoord, zCoord) < RANGE && !player.capabilities.isCreativeMode && !profile.isSameTeam(player)) {
 					
-					return player;
+					if (RaytraceUtil.raytrace(getAngleFromEntity(player), getTurretVector(), worldObj, InitBlocks.sentry_turret, player, RANGE) != HitType.BLOCK) {					
+						return player;
+					}
 				}
 			}
+					
+			if (object instanceof EntityMob) {
+				
+				EntityMob mob = (EntityMob)object;
+				
+				if (mob.getDistance(xCoord, yCoord, zCoord) < RANGE) {					
+					
+					if (RaytraceUtil.raytrace(getAngleFromEntity(mob), getTurretVector(), worldObj, InitBlocks.sentry_turret, mob, RANGE) != HitType.BLOCK) {					
+						return mob;
+					}
+				}			
+			}				
 		}
 
 		return null;
@@ -58,11 +73,25 @@ public class TileEntityTurretSentry extends TileEntityTurretBase {
 	@Override
 	public void checkTarget() {
 		
-		EntityPlayer player = (EntityPlayer)target;
-		
-		if (target.getDistance(xCoord, yCoord, zCoord) >= RANGE || player.isDead || player.capabilities.isCreativeMode || profile.isSameTeam(player)) {
+		if (RaytraceUtil.raytrace(getAngleFromTarget(), getTurretVector(), worldObj, InitBlocks.sentry_turret, target, RANGE) == HitType.BLOCK) {
 			target = null;
 		}
+		
+		if (target instanceof EntityPlayer) {
+		
+			EntityPlayer player = (EntityPlayer)target;
+		
+			if (target.getDistance(xCoord, yCoord, zCoord) >= RANGE || player.isDead || player.capabilities.isCreativeMode || profile.isSameTeam(player)) {
+				target = null;
+			}
+		}
+		
+		if (target instanceof EntityMob) {
+			
+			if (target.getDistance(xCoord, yCoord, zCoord) >= RANGE || target.isDead) {
+				target = null;
+			}
+		}		
 	}
 
 	@Override
@@ -84,10 +113,18 @@ public class TileEntityTurretSentry extends TileEntityTurretBase {
 	@Override
 	public void fire() {
 
-		if (target != null && target instanceof EntityLivingBase) {
+		if (target != null) {
+			
+			if (target instanceof EntityPlayer) {	
 
-			EntityLivingBase livingBase = (EntityLivingBase) target;
-			livingBase.attackEntityFrom(new DamageSourceTeam((EntityPlayer) livingBase, profile.getTeamName() + "'s Sentry Turret"), DAMAGE);
+				EntityPlayer player = (EntityPlayer) target;
+				player.attackEntityFrom(new DamageSourceTeam((EntityPlayer) player, profile.getTeamName() + "'s Sentry Turret"), DAMAGE);				
+			}
+			
+			if (target instanceof EntityMob) {
+				
+				target.attackEntityFrom(DamageSource.generic, DAMAGE);
+			}
 		}
 	}
 	

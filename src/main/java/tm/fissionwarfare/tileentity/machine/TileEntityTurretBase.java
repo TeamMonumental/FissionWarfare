@@ -7,6 +7,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -38,6 +40,8 @@ public abstract class TileEntityTurretBase extends TileEntityEnergyBase implemen
 	
 	private Random rand = new Random();
 	
+	private boolean foundTarget = false;
+	
 	public SecurityProfile profile = new SecurityProfile();
 	public Angle2d angle = new Angle2d(0, 0);	
 	public Entity target;
@@ -53,27 +57,31 @@ public abstract class TileEntityTurretBase extends TileEntityEnergyBase implemen
 		
 		profile.cleanTeam(worldObj);		
 		angle.pitch = MathHelper.clamp_double(angle.pitch, -60, 60);		
-		updateBlock();
 		
-		if (!worldObj.isRemote && enabled) {			
-			
-			if (!isDone()) {
-				progress++;
-			}
-			
-			if (target == null) {
+		if (enabled) {
 				
-				angle.yaw++;
-				target = findTarget();				
-			} 
+			if (worldObj.isRemote) {
 			
+				if (target == null)	{
+					
+					angle.yaw++;
+				
+					if (!MathUtil.isInRange(angle.pitch, 1, -1)) angle.pitch = MathUtil.approach(angle.pitch, 0, 0.5D);		
+					else angle.pitch = 0;
+				}
+			
+				else angle = getAngleFromTarget();
+			} 
+		
+			if (target == null) target = findTarget();
+			
+			if (!isDone()) progress++;
+					
 			else {
 				
-				angle = getAngleFromTarget();
-				
-				checkTarget();
-				
-				if (canFire() && hasEnergyAndAmmo()) {
+				if (target != null) checkTarget();
+					
+				if (!worldObj.isRemote && canFire() && hasEnergyAndAmmo()) {
 					
 					fire();
 					
@@ -96,8 +104,8 @@ public abstract class TileEntityTurretBase extends TileEntityEnergyBase implemen
 					
 					progress = 0;
 				}
-			}
-		}	
+			}			
+		}
 	}
 	
 	public abstract Entity findTarget();
@@ -117,22 +125,21 @@ public abstract class TileEntityTurretBase extends TileEntityEnergyBase implemen
 	}
 	
 	public Angle2d getAngleFromTarget() {
-		return Angle2d.getAngleFromVectors(getTurretVector(), getTargetVector());
+		return getAngleFromEntity(target);
+	}
+	
+	public Angle2d getAngleFromEntity(Entity entity) {
+		return Angle2d.getAngleFromVectors(getTurretVector(), getEntityVector(entity));
+	}
+		
+	public Vector3d getEntityVector(Entity entity) {
+		return new Vector3d(entity.posX + 0.5D, entity.posY + 1D, entity.posZ + 0.5D);
 	}
 	
 	public Vector3d getTurretVector() {
 		return new Vector3d(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D);
 	}
 	
-	public Vector3d getTargetVector() {
-		return new Vector3d(target.posX + 0.5D, target.posY + 1D, target.posZ + 0.5D);
-	}
-	
-	public void updateBlock() {
-		markDirty();
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-	}
-
 	public boolean canShellFitInHopper() {
 		
 		if (worldObj.getTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityHopper) {				
@@ -200,13 +207,22 @@ public abstract class TileEntityTurretBase extends TileEntityEnergyBase implemen
 	}
 	
 	@Override
+	public void readFromNBT(NBTTagCompound nbt) {
+		super.readFromNBT(nbt);
+		readSyncNBT(nbt);
+	}
+	
+	@Override
+	public void writeToNBT(NBTTagCompound nbt) {
+		super.writeToNBT(nbt);
+		writeSyncNBT(nbt);
+	}
+	
+	@Override
 	public void readSyncNBT(NBTTagCompound nbt) {
 		super.readSyncNBT(nbt);
 		
 		profile.readFromNBT(nbt);
-		
-		angle.pitch = nbt.getDouble("pitch");
-		angle.yaw = nbt.getDouble("yaw");
 	}
 	
 	@Override
@@ -214,8 +230,5 @@ public abstract class TileEntityTurretBase extends TileEntityEnergyBase implemen
 		super.writeSyncNBT(nbt);
 		
 		profile.writeToNBT(nbt);
-		
-		nbt.setDouble("pitch", angle.pitch);
-		nbt.setDouble("yaw", angle.yaw);
 	}
 }

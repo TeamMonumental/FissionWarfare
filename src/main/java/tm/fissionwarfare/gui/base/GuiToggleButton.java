@@ -29,6 +29,8 @@ public class GuiToggleButton extends GuiButtonRect {
 		GuiRect rect = new GuiRect(xPosition, yPosition, width, height);
 		
 		if (rect.contains(mouseX, mouseY)) {
+			
+			tileEntity.enabled = !tileEntity.enabled;
 			FissionWarfare.network.sendToServer(new ServerPacketHandler("toggle.tileEntity%" + tileEntity.xCoord + "%" + tileEntity.yCoord + "%" + tileEntity.zCoord));
 		}	
 		

@@ -15,18 +15,21 @@ public class TileEntityTurretMissile extends TileEntityTurretBase {
 
 	public static final int RANGE = 150;
 	public static final float DAMAGE = 1.0F;
-	
+
 	@Override
 	public Entity findTarget() {
-				
+
 		for (Object object : worldObj.loadedEntityList) {
 
 			if (object instanceof EntityMissile) {
-				
-				EntityMissile missile = (EntityMissile)object;
-				
-				if (missile.getDistance(xCoord, yCoord, zCoord) < RANGE && missile.state == MissileState.GOING_DOWN) {					
-					return missile;
+
+				EntityMissile missile = (EntityMissile) object;
+
+				if (missile.getDistance(xCoord, yCoord, zCoord) < RANGE && missile.state == MissileState.GOING_DOWN) {
+
+					if (RaytraceUtil.raytrace(getAngleFromEntity(missile), getTurretVector(), worldObj, InitBlocks.sentry_turret, missile, RANGE) != HitType.BLOCK) {
+						return missile;
+					}
 				}
 			}
 		}
@@ -36,9 +39,13 @@ public class TileEntityTurretMissile extends TileEntityTurretBase {
 
 	@Override
 	public void checkTarget() {
-		
-		EntityMissile missile = (EntityMissile)target;
-		
+
+		EntityMissile missile = (EntityMissile) target;
+
+		if (RaytraceUtil.raytrace(getAngleFromTarget(), getTurretVector(), worldObj, InitBlocks.sentry_turret, missile,	RANGE) == HitType.BLOCK) {
+			target = null;
+		}
+
 		if (target.getDistance(xCoord, yCoord, zCoord) >= RANGE || missile.isDead) {
 			target = null;
 		}
@@ -46,8 +53,8 @@ public class TileEntityTurretMissile extends TileEntityTurretBase {
 
 	@Override
 	public boolean canFire() {
-		
-		if (target != null && isDone() && RaytraceUtil.raytrace(getAngleFromTarget(), getTurretVector(), worldObj, InitBlocks.sentry_turret, target, RANGE) != HitType.BLOCK) {
+
+		if (target != null && isDone() && RaytraceUtil.raytrace(getAngleFromTarget(), getTurretVector(), worldObj, InitBlocks.missile_turret, target, RANGE) != HitType.BLOCK) {
 
 			Angle2d angle = getAngleFromTarget();
 
@@ -62,10 +69,10 @@ public class TileEntityTurretMissile extends TileEntityTurretBase {
 
 	@Override
 	public void fire() {
-		
+
 		if (target != null && target instanceof EntityMissile) {
 
-			EntityMissile missile = (EntityMissile)target;
+			EntityMissile missile = (EntityMissile) target;
 			missile.health -= DAMAGE;
 		}
 	}
@@ -74,12 +81,12 @@ public class TileEntityTurretMissile extends TileEntityTurretBase {
 	public int getEnergyCost() {
 		return 1000000;
 	}
-	
+
 	@Override
 	public String getName() {
 		return "Missile";
 	}
-	
+
 	@Override
 	public int getMaxProgress() {
 		return 10;
