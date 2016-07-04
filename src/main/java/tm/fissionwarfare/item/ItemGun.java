@@ -170,7 +170,7 @@ public class ItemGun extends ItemBase {
 				
 				if (!world.isRemote) GunTraceUtil.doGunTrace(player, new Vector3d(player.posX, 1.62F + player.posY, player.posZ), new Angle2d((-player.rotationPitch) + randomPitch, (-player.rotationYaw - 90) + randomYaw), world, profile.damage, profile.distance);
 				
-				world.playSoundAtEntity(player, profile.sound.getSoundPath(), 1, 1);
+				world.playSoundAtEntity(player, profile.sound.getSoundPath(), .05F, 1);
 			}
 			
 			data.ammo--;	

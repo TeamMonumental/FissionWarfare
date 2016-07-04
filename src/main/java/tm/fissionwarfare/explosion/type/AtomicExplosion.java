@@ -17,7 +17,7 @@ public class AtomicExplosion extends BasicExplosion implements IExplosionType {
 
 	private Random rand = new Random();
 
-	private final static int SIZE = 15;
+	private final static int SIZE = 25;
 
 	private World world;
 	private Vector3d vector;
@@ -32,7 +32,7 @@ public class AtomicExplosion extends BasicExplosion implements IExplosionType {
 	public void doBlockDamage() {
 
 		ReinforcedBlocksUtil.generateShockwave(new Location(world, vector), SIZE, 4);
-		ExplosionUtil.generateExplosion(world, vector, SIZE, 2);
+		ExplosionUtil.generateExplosion(world, vector, SIZE, 1);
 	}
 
 	@Override

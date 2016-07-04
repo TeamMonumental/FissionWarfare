@@ -3,11 +3,9 @@ package tm.fissionwarfare.init;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
 import tm.fissionwarfare.item.ItemBase;
-import tm.fissionwarfare.item.ItemCompressor;
 import tm.fissionwarfare.item.ItemGun;
 import tm.fissionwarfare.item.ItemLocationLinker;
 import tm.fissionwarfare.item.ItemMissile;
-import tm.fissionwarfare.item.ItemNailGun;
 import tm.fissionwarfare.item.ItemTiered;
 import tm.fissionwarfare.itemblock.ItemControlPanel;
 import tm.fissionwarfare.itemblock.ItemSupportFrame;
@@ -45,7 +43,6 @@ public class InitItems {
 	
 	public static Item motor;	
 	
-	public static Item nail;
 	public static Item cartridge;
 	
 	public static ToolSet steel;
@@ -54,10 +51,6 @@ public class InitItems {
 	
 	public static Item control_panel;
 	public static Item support_frame;
-	
-	public static Item nail_gun;
-	public static Item nail_gun_magazine;
-	public static Item compressor;
 		
 	public static Item location_linker;
 	
@@ -98,9 +91,7 @@ public class InitItems {
 		fuel_canister = new ItemTiered("fuel_canister", 3);		
 		plating = new ItemTiered("plating", 3);
 		
-		motor = new ItemBase("motor");
-		
-		nail = new ItemBase("nail");		
+		motor = new ItemBase("motor");	
 		cartridge = new ItemBase("cartridge");
 						
 		steel = new ToolSet("steel", InitToolMaterials.toolMaterialSteel, steel_ingot, true);
@@ -109,10 +100,6 @@ public class InitItems {
 		
 		control_panel = new ItemControlPanel();
 		support_frame = new ItemSupportFrame();
-		
-		nail_gun = new ItemNailGun();
-		nail_gun_magazine = new ItemBase("nail_gun_magazine", InitTabs.tabWarfare).setMaxStackSize(1).setMaxDamage(150);
-		compressor = new ItemCompressor();	
 		
 		location_linker = new ItemLocationLinker();	
 		

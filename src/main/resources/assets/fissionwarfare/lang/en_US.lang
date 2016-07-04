@@ -31,7 +31,6 @@ item.plating_1.name=Electrum Plating
 item.plating_2.name=Enderium Plating
 item.motor.name=Motor
 
-item.nail.name=Nail
 item.cartridge.name=Cartridge
 
 item.steel_sword.name=Steel Sword
@@ -44,10 +43,6 @@ item.steel_hoe.name=Steel Hoe
 
 item.itemblock_control_panel.name=Control Panel
 item.itemblock_support_frame.name=Support Frame
-
-item.nail_gun.name=Nail Gun
-item.nail_gun_magazine.name=Nail Gun Magazine
-item.compressor.name=Compressor
 
 item.location_linker.name=Location Linker
 
@@ -67,13 +62,11 @@ tile.quartz_ore.name=Quartz Ore
 tile.sulfur_ore.name=Sulfur Ore
 tile.uranium_ore.name=Uranium Ore
 
-tile.steel_block.name=Steel Block
-
 #-#-#-#-#-|BLOCKS - WARFARE|-#-#-#-#-#
 
-tile.concrete_3.name=Concrete
-tile.steel_block_3.name=Steel Block
-tile.reinforced_glass_2.name=Reinforced Glass
+tile.concrete_15.name=Concrete
+tile.steel_block_15.name=Steel Block
+tile.reinforced_glass_10.name=Reinforced Glass
 
 tile.basic.name=Basic Explosive
 tile.emp.name=EMP Explosive
@@ -82,6 +75,7 @@ tile.chemical.name=Chemical Explosive
 tile.atomic.name=Atomic Explosive
 
 tile.sentry_turret.name=Sentry Turret
+tile.missile_turret.name=Missile Turret
 tile.missile_factory.name=Missile Factory
 
 tile.launch_pad.name=Launch Pad

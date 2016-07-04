@@ -13,7 +13,7 @@ import tm.fissionwarfare.util.math.Vector3d;
 
 public class BasicExplosion implements IExplosionType {
 
-	private final static int SIZE = 8;
+	private final static int SIZE = 10;
 
 	private World world;
 	private Vector3d vector;
@@ -28,7 +28,7 @@ public class BasicExplosion implements IExplosionType {
 	public void doBlockDamage() {
 
 		ReinforcedBlocksUtil.generateShockwave(new Location(world, vector), SIZE, 1);
-		ExplosionUtil.generateExplosion(world, vector, SIZE, 1);
+		ExplosionUtil.generateExplosion(world, vector, SIZE, 2);
 	}
 
 	@Override
