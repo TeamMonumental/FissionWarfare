@@ -4,6 +4,7 @@
 	"blast": { "category": "master", "sounds": [{ "name": "blast", "stream": false }] },
 	"emp": { "category": "master", "sounds": [{ "name": "emp", "stream": false }] },
 	"gas_cloud": { "category": "master", "sounds": [{ "name": "gas_cloud", "stream": false }] },
+	"thunder": { "category": "master", "sounds": [{ "name": "thunder", "stream": false }] },
 	"nuke": { "category": "master", "sounds": [{ "name": "nuke", "stream": false }] },
 	"cave_in": { "category": "master", "sounds": [{ "name": "cave_in", "stream": false }] },
 	"rumbling_cave": { "category": "master", "sounds": [{ "name": "rumbling_cave", "stream": false }] },

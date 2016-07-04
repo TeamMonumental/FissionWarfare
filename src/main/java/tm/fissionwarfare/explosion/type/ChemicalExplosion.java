@@ -37,6 +37,6 @@ public class ChemicalExplosion implements IExplosionType {
 	@Override
 	public void doEffects() {
 		
-		FWSound.gas_cloud.play(world, vector.x, vector.y, vector.z, 2, 1);		
+		FWSound.gas_cloud.play(world, vector.x, vector.y, vector.z, 3, 1);		
 	}
 }

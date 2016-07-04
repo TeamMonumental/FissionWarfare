@@ -51,6 +51,6 @@ public class BasicExplosion implements IExplosionType {
 			world.spawnParticle("hugeexplosion", (vector.x + offset), d2, (vector.z - offset), 0, 0, 0);
 		}
 
-		FWSound.small_blast.play(world, vector.x, vector.y, vector.z, SIZE * 2, 1);
+		FWSound.small_blast.play(world, vector.x, vector.y, vector.z, 10, 1);
 	}
 }

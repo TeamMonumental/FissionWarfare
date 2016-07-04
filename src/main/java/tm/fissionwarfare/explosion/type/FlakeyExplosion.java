@@ -2,6 +2,7 @@ package tm.fissionwarfare.explosion.type;
 
 import net.minecraft.world.World;
 import tm.fissionwarfare.api.IExplosionType;
+import tm.fissionwarfare.entity.EntityCloud;
 import tm.fissionwarfare.entity.EntityFlakey;
 import tm.fissionwarfare.sounds.FWSound;
 import tm.fissionwarfare.util.math.Vector3d;
@@ -19,9 +20,10 @@ public class FlakeyExplosion implements IExplosionType {
 
 	@Override
 	public void doBlockDamage() {
-		System.out.println("YES");
 		EntityFlakey flakey = new EntityFlakey(world, vector.x, vector.y, vector.z);
+		EntityCloud cloud = new EntityCloud(world, vector.x, vector.y + 28, vector.z);
 		world.spawnEntityInWorld(flakey);
+		world.spawnEntityInWorld(cloud);
 	}
 
 	@Override
@@ -31,7 +33,7 @@ public class FlakeyExplosion implements IExplosionType {
 
 	@Override
 	public void doEffects() {
-		FWSound.small_blast.play(world, vector.x, vector.y, vector.z, 2, 1);
+		FWSound.thunder.play(world, vector.x, vector.y, vector.z, 5, 1);
 		
 	}
 

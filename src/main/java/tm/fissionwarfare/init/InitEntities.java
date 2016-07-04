@@ -3,7 +3,9 @@ package tm.fissionwarfare.init;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import tm.fissionwarfare.FissionWarfare;
 import tm.fissionwarfare.entity.EntityBullet;
+import tm.fissionwarfare.entity.EntityCloud;
 import tm.fissionwarfare.entity.EntityExplosive;
+import tm.fissionwarfare.entity.EntityFlakey;
 import tm.fissionwarfare.entity.EntityGasCloud;
 import tm.fissionwarfare.entity.EntityMissile;
 
@@ -17,5 +19,7 @@ public class InitEntities {
 		EntityRegistry.registerModEntity(EntityMissile.class, "missile", nextEntityId++, FissionWarfare.instance, 128, 1, true);
 		EntityRegistry.registerModEntity(EntityBullet.class, "bullet", nextEntityId++, FissionWarfare.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(EntityGasCloud.class, "gas", nextEntityId++, FissionWarfare.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(EntityFlakey.class, "flakey", nextEntityId++, FissionWarfare.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(EntityCloud.class, "cloud", nextEntityId++, FissionWarfare.instance, 64, 10, true);
 	}
 }

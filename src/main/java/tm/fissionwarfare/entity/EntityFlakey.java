@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import tm.fissionwarfare.block.BlockExplosive;
 import tm.fissionwarfare.init.InitBlocks;
 
-public class EntityFlakey extends Entity {
+public class EntityFlakey extends Entity{
 	
 	private static final double MAX_LIFE = 20 * 10;
 
@@ -29,7 +29,7 @@ public class EntityFlakey extends Entity {
 		if (ticksExisted >= MAX_LIFE) {
 			setDead();
 		}
-		if (ticksExisted % 40 == 0) {
+		if (ticksExisted % 20 == 0) {
 			doDamage();
 		}
 		
@@ -39,27 +39,31 @@ public class EntityFlakey extends Entity {
 	}
 
 	private void doDamage() {
-		
-		System.out.println("DAMAGE");
-				
 		int posXX = (int)posX;
 		int posYY = (int)posY;
 		int posZZ = (int)posZ;
 		
-		BlockExplosive basicBomb = (BlockExplosive)InitBlocks.basicExplosive;
-		EntityExplosive bomb = new EntityExplosive(worldObj, posXX, posYY + 10, posZZ, basicBomb);
 		
-		worldObj.spawnEntityInWorld(bomb);
-			
+		double velX = net.minecraft.util.MathHelper.getRandomDoubleInRange(rand, -.3D, .3D);
+		double velZ = net.minecraft.util.MathHelper.getRandomDoubleInRange(rand, -.3D, .3D);
+		
+		BlockExplosive basicBomb = (BlockExplosive)InitBlocks.basicExplosive;
+		EntityExplosive bomb = new EntityExplosive(worldObj, posXX, posYY + 30, posZZ, basicBomb);
+		if (!worldObj.isRemote){
+			worldObj.setWorldTime(18000);
+			worldObj.setRainStrength(1.0F);
+			worldObj.setThunderStrength(1.0F);
+			worldObj.spawnEntityInWorld(bomb);
+			bomb.addVelocity(velX, .05D, velZ);
+		}
 	}
 
 	private void doEffects() {
-		System.out.println("BOOM");
+
 	}
 
 	@Override
 	public void entityInit() {
-		System.out.println("INIT");
 		
 	}
 
@@ -74,3 +78,4 @@ public class EntityFlakey extends Entity {
 	}
 
 }
+
