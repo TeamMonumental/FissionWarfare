@@ -75,7 +75,8 @@ tile.chemical.name=Chemical Explosive
 tile.atomic.name=Atomic Explosive
 
 tile.sentry_turret.name=Sentry Turret
-tile.missile_turret.name=Missile Turret
+tile.missile_turret.name=Anti-Missile Turret
+
 tile.missile_factory.name=Missile Factory
 
 tile.launch_pad.name=Launch Pad
