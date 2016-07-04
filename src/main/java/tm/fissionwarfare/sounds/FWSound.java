@@ -7,6 +7,7 @@ public class FWSound {
 
 	public static final FWSound beep = new FWSound("beep");
 	public static final FWSound small_blast = new FWSound("blast");
+	public static final FWSound emp = new FWSound("emp");
 	public static final FWSound gas_cloud = new FWSound("gas_cloud");
 	public static final FWSound nuke = new FWSound("nuke");
 	public static final FWSound cave_in = new FWSound("cave_in");

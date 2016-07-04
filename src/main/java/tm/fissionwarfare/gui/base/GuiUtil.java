@@ -34,17 +34,6 @@ public class GuiUtil {
 		else drawHoveringTextBox(energy + " / " + maxEnergy + " RF", mouseX, mouseY, rect2);
 	}
 	
-	public static void drawEnergyBar(int energy, int maxEnergy, int x, int y, int mouseX, int mouseY) {
-		
-		GuiRect rect = new GuiRect(6, 20, 8, 36);
-		
-		drawRect(x, y, rect.x, rect.y, 0, rect.width, rect.height);
-		
-		drawScaledHeightRect(x + 7, y + 55, 19, 40, 0, 6, 34, energy, maxEnergy);
-		
-		drawHoveringTextBox("Cost: " + energy + " / " + maxEnergy + " RF", mouseX, mouseY, rect);
-	}
-		
 	public static void drawHoveringTextBox(String text, int mouseX, int mouseY, GuiRect rect) {
 		
 		if (rect.contains(mouseX, mouseY)) {

@@ -2,6 +2,7 @@
     "beep": { "category": "master", "sounds": [{ "name": "beep", "stream": false }] },
 		
 	"blast": { "category": "master", "sounds": [{ "name": "blast", "stream": false }] },
+	"emp": { "category": "master", "sounds": [{ "name": "emp", "stream": false }] },
 	"gas_cloud": { "category": "master", "sounds": [{ "name": "gas_cloud", "stream": false }] },
 	"nuke": { "category": "master", "sounds": [{ "name": "nuke", "stream": false }] },
 	"cave_in": { "category": "master", "sounds": [{ "name": "cave_in", "stream": false }] },

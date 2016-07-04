@@ -68,11 +68,9 @@ public class EMPExplosion implements IExplosionType {
 					
 					world.spawnParticle("smoke", loc.x + randX, loc.y + 1D, loc.z + randZ, 0, 0, 0);
 				}
-				
-				world.playSound(loc.x, loc.y, loc.z, "random.fizz", 1, 0.5F, false);
 			}
 		}
 		
-		FWSound.small_blast.play(world, vector.x, vector.y, vector.z, SIZE * 2, 1);
+		FWSound.emp.play(world, vector.x, vector.y, vector.z, SIZE * 2, 1);
 	}
 }

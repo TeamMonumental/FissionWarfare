@@ -20,7 +20,7 @@ public class MissileSound extends MovingSound {
 			
 		this.missile = missile;
 		
-		volume = (missile.state == MissileState.GOING_DOWN ? 50 : 4);		
+		volume = (missile.state == MissileState.GOING_DOWN ? 50 : 2);		
 		
 		this.repeat = true;
 	}
