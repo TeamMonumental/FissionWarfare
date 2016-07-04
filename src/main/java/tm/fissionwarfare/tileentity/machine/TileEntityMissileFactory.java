@@ -13,6 +13,7 @@ import tm.fissionwarfare.gui.GuiMissileFactory;
 import tm.fissionwarfare.init.InitItems;
 import tm.fissionwarfare.inventory.ContainerMissileFactory;
 import tm.fissionwarfare.missile.MissileData;
+import tm.fissionwarfare.missile.MissileUtil;
 import tm.fissionwarfare.tileentity.base.TileEntityEnergyBase;
 
 public class TileEntityMissileFactory extends TileEntityEnergyBase {
@@ -79,7 +80,7 @@ public class TileEntityMissileFactory extends TileEntityEnergyBase {
 	public boolean isReady() {
 		
 		if (hasItems()) {
-			energyCost = ((slots[1].getItemDamage() + 1) * 20000) + ((slots[2].getItemDamage() + 1) * 20000) + ((slots[3].getItemDamage() + 1) * 20000);
+			energyCost = MissileUtil.getEnergyCost(slots[1], slots[2], slots[3]);
 		}
 		
 		else {

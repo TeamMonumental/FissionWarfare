@@ -3,11 +3,12 @@ package tm.fissionwarfare.entity;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import tm.fissionwarfare.block.BlockExplosive;
 import tm.fissionwarfare.init.InitBlocks;
 
-public class EntityFlakey extends Entity{
+public class EntityFlakey extends Entity {
 	
 	private static final double MAX_LIFE = 20 * 10;
 
@@ -38,14 +39,18 @@ public class EntityFlakey extends Entity{
 	}
 
 	private void doDamage() {
+		
 		System.out.println("DAMAGE");
+				
 		int posXX = (int)posX;
 		int posYY = (int)posY;
 		int posZZ = (int)posZ;
+		
 		BlockExplosive basicBomb = (BlockExplosive)InitBlocks.basicExplosive;
 		EntityExplosive bomb = new EntityExplosive(worldObj, posXX, posYY + 10, posZZ, basicBomb);
-			worldObj.spawnEntityInWorld(bomb);
 		
+		worldObj.spawnEntityInWorld(bomb);
+			
 	}
 
 	private void doEffects() {

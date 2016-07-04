@@ -22,16 +22,27 @@ public class GuiUtil {
 		GuiRect rect2 = new GuiRect(rect.x + 5, rect.y + 5, rect.width - 10, rect.height - 10);
 		
 		mc.getTextureManager().bindTexture(Reference.GUI_TEXTURES);
-		drawRect(x, y, 0, 0, 0, 19, 76);		
+		drawRect(x, y, 0, 0, 0, 19, 76);
 		
 		drawScaledHeightRect(x + 4, y + 58, 19, 0, 0, 12, 40, progress, maxProgress);
 		drawScaledHeightRect(x + 7, y + 55, 19, 40, 0, 6, 34, energy, maxEnergy);
 		
-		if (rect.contains(mouseX, mouseY) && ! rect2.contains(mouseX, mouseY)) {
+		if (rect.contains(mouseX, mouseY) && !rect2.contains(mouseX, mouseY)) {
 			drawHoveringTextBox("Progress: " + MathUtil.scaleInt(progress, maxProgress, 100) + "%", mouseX, mouseY, rect);
 		}
 				
 		else drawHoveringTextBox(energy + " / " + maxEnergy + " RF", mouseX, mouseY, rect2);
+	}
+	
+	public static void drawEnergyBar(int energy, int maxEnergy, int x, int y, int mouseX, int mouseY) {
+		
+		GuiRect rect = new GuiRect(6, 20, 8, 36);
+		
+		drawRect(x, y, rect.x, rect.y, 0, rect.width, rect.height);
+		
+		drawScaledHeightRect(x + 7, y + 55, 19, 40, 0, 6, 34, energy, maxEnergy);
+		
+		drawHoveringTextBox("Cost: " + energy + " / " + maxEnergy + " RF", mouseX, mouseY, rect);
 	}
 		
 	public static void drawHoveringTextBox(String text, int mouseX, int mouseY, GuiRect rect) {
