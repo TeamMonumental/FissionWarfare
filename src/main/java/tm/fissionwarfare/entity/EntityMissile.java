@@ -55,12 +55,9 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 	@Override
 	public void onUpdate() {		
 		super.onUpdate();
-		
-		System.out.println(health);
-		
+				
 		MissileData missileData = MissileData.getDataFromItem(missileStack);
-		
-		
+				
 		int speed = (missileData.getFuelTier() + 1);
 		
 		noClip = !(state == MissileState.GOING_DOWN);
@@ -107,6 +104,8 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 	
 	private void explode(MissileData missileData) {
 		
+		setDead();
+		
 		if (missileData != null && missileData.getExplosionType() != null) {
 			
 			IExplosionType explosion = missileData.getExplosionType().getExplosionType();
@@ -120,9 +119,7 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 			}
 	
 			explosion.doEffects();
-		}
-		
-		setDead();		
+		}	
 	}
 	
 	@SideOnly(Side.CLIENT)	

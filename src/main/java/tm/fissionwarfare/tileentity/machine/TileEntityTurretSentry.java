@@ -81,14 +81,14 @@ public class TileEntityTurretSentry extends TileEntityTurretBase {
 		
 			EntityPlayer player = (EntityPlayer)target;
 		
-			if (target.getDistance(xCoord, yCoord, zCoord) >= RANGE || player.isDead || player.capabilities.isCreativeMode || profile.isSameTeam(player)) {
+			if (target == null || player.isDead || target.getDistance(xCoord, yCoord, zCoord) >= RANGE ||  player.capabilities.isCreativeMode || profile.isSameTeam(player)) {
 				target = null;
 			}
 		}
 		
 		if (target instanceof EntityMob) {
 			
-			if (target.getDistance(xCoord, yCoord, zCoord) >= RANGE || target.isDead) {
+			if (target == null || target.isDead || target.getDistance(xCoord, yCoord, zCoord) >= RANGE) {
 				target = null;
 			}
 		}		

@@ -46,7 +46,7 @@ public class TileEntityTurretMissile extends TileEntityTurretBase {
 			target = null;
 		}
 
-		if (target.getDistance(xCoord, yCoord, zCoord) >= RANGE || missile.isDead) {
+		if (target == null || target.isDead || target.getDistance(xCoord, yCoord, zCoord) >= RANGE) {
 			target = null;
 		}
 	}
