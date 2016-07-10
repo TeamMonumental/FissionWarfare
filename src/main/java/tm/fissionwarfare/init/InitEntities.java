@@ -5,6 +5,7 @@ import tm.fissionwarfare.FissionWarfare;
 import tm.fissionwarfare.entity.EntityBullet;
 import tm.fissionwarfare.entity.EntityCloud;
 import tm.fissionwarfare.entity.EntityExplosive;
+import tm.fissionwarfare.entity.EntityFissionHeart;
 import tm.fissionwarfare.entity.EntityFlakey;
 import tm.fissionwarfare.entity.EntityGasCloud;
 import tm.fissionwarfare.entity.EntityMissile;
@@ -21,5 +22,6 @@ public class InitEntities {
 		EntityRegistry.registerModEntity(EntityGasCloud.class, "gas", nextEntityId++, FissionWarfare.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(EntityFlakey.class, "flakey", nextEntityId++, FissionWarfare.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(EntityCloud.class, "cloud", nextEntityId++, FissionWarfare.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(EntityFissionHeart.class, "fission_heart", nextEntityId++, FissionWarfare.instance, 64, 10, true);
 	}
 }

@@ -68,11 +68,12 @@ tile.concrete_15.name=Concrete
 tile.steel_block_15.name=Steel Block
 tile.reinforced_glass_10.name=Reinforced Glass
 
-tile.basic.name=Basic Explosive
-tile.emp.name=EMP Explosive
-tile.pyro.name=Pyrotechnics Explosive
-tile.chemical.name=Chemical Explosive
-tile.atomic.name=Atomic Explosive
+tile.basic_explosion.name=Basic Explosive
+tile.emp_explosion.name=EMP Explosive
+tile.pyro_explosion.name=Pyrotechnics Explosive
+tile.chemical_explosion.name=Chemical Explosive
+tile.atomic_explosion.name=Atomic Explosive
+tile.fission_explosion.name=Fission Explosive
 
 tile.sentry_turret.name=Sentry Turret
 tile.missile_turret.name=Anti-Missile Turret
@@ -90,6 +91,10 @@ tile.concrete_mix.name=Concrete Mix
 
 fluid.liquid_glass=Liquid Glass
 tile.liquid_glass.name=Liquid Glass
+
+#-#-#-#-#-ENTITY-#-#-#-#-#
+
+entity.FissionWarfare.fission_heart.name=Fission Heart
 
 #-#-#-#-#-CONFIG-#-#-#-#-#
 

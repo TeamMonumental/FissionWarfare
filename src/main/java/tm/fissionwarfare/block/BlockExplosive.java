@@ -22,7 +22,7 @@ public class BlockExplosive extends BlockBase implements IExplosiveBlock {
 	private EnumExplosionType explosion;
 
 	public BlockExplosive(String imagePath, EnumExplosionType explosion) {
-		super(imagePath, Material.tnt, 0, 0, 0, Block.soundTypeStone);
+		super(imagePath + "_explosion", Material.tnt, 0, 0, 0, Block.soundTypeStone);
 		this.explosion = explosion;
 		setCreativeTab(InitTabs.tabWarfare);
 	}

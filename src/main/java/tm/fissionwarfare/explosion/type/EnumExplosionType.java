@@ -9,7 +9,8 @@ public enum EnumExplosionType {
 	PYRO("Pyro", new PyroExplosion(), 100),
 	CHEMICAL("Chemical", new ChemicalExplosion(), 100),
 	ATOMIC("Atomic", new AtomicExplosion(), 100),
-	FLAKEY("Flakey", new FlakeyExplosion(), 100);
+	FLAKEY("Flakey", new FlakeyExplosion(), 100),
+	FISSION("Flakey", new FissionExplosion(), 150);
 
 	private String name;
 	private IExplosionType explosionType;

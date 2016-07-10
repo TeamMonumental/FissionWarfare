@@ -16,11 +16,11 @@ public class MissileUtil {
 		
 		Block block = null;
 				
-		if (data.getExplosionType() == EnumExplosionType.BASIC) block = InitBlocks.basicExplosive;
-		if (data.getExplosionType() == EnumExplosionType.EMP) block = InitBlocks.empExplosive;
-		if (data.getExplosionType() == EnumExplosionType.PYRO) block = InitBlocks.pyroExplosive;
-		if (data.getExplosionType() == EnumExplosionType.CHEMICAL) block = InitBlocks.chemicalExplosive;
-		if (data.getExplosionType() == EnumExplosionType.ATOMIC) block = InitBlocks.atomicExplosive;
+		if (data.getExplosionType() == EnumExplosionType.BASIC) block = InitBlocks.basic_explosive;
+		if (data.getExplosionType() == EnumExplosionType.EMP) block = InitBlocks.emp_explosive;
+		if (data.getExplosionType() == EnumExplosionType.PYRO) block = InitBlocks.pyro_explosive;
+		if (data.getExplosionType() == EnumExplosionType.CHEMICAL) block = InitBlocks.chemical_explosive;
+		if (data.getExplosionType() == EnumExplosionType.ATOMIC) block = InitBlocks.atomic_explosive;
 				
 		if (data.getExplosionType() != null) ingrediants[0] = new ItemStack(block);
 		

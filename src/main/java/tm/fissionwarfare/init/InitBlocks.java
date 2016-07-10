@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import tm.fissionwarfare.block.BlockBase;
 import tm.fissionwarfare.block.BlockControlPanel;
 import tm.fissionwarfare.block.BlockExplosive;
+import tm.fissionwarfare.block.BlockFission;
 import tm.fissionwarfare.block.BlockLaunchPad;
 import tm.fissionwarfare.block.BlockMissileFactory;
 import tm.fissionwarfare.block.BlockOreBase;
@@ -29,13 +30,16 @@ public class InitBlocks {
 	public static Block concrete;
 	public static Block reinforced_glass;
 	
-	public static Block basicExplosive;
-	public static Block empExplosive;
-	public static Block pyroExplosive;
-	public static Block chemicalExplosive;
-	public static Block atomicExplosive;
-	public static Block flakeyExplosive;
+	public static Block fission;
 	
+	public static Block basic_explosive;
+	public static Block emp_explosive;
+	public static Block pyro_explosive;
+	public static Block chemical_explosive;
+	public static Block atomic_explosive;
+	public static Block flakey_explosive;
+	public static Block fission_explosive;
+		
 	public static Block sentry_turret;
 	public static Block missile_turret;
 	
@@ -59,12 +63,15 @@ public class InitBlocks {
 		concrete = new BlockReinforced("concrete", 3, true, true);
 		reinforced_glass = new BlockReinforced("reinforced_glass", 2, false, false);
 		
-		basicExplosive = new BlockExplosive("basic", EnumExplosionType.BASIC);
-		empExplosive = new BlockExplosive("emp", EnumExplosionType.EMP);
-		pyroExplosive = new BlockExplosive("pyro", EnumExplosionType.PYRO);
-		chemicalExplosive = new BlockExplosive("chemical", EnumExplosionType.CHEMICAL);
-		atomicExplosive = new BlockExplosive("atomic", EnumExplosionType.ATOMIC);
-		flakeyExplosive = new BlockExplosive("flakey", EnumExplosionType.FLAKEY);
+		fission = new BlockFission();
+		
+		basic_explosive = new BlockExplosive("basic", EnumExplosionType.BASIC);
+		emp_explosive = new BlockExplosive("emp", EnumExplosionType.EMP);
+		pyro_explosive = new BlockExplosive("pyro", EnumExplosionType.PYRO);
+		chemical_explosive = new BlockExplosive("chemical", EnumExplosionType.CHEMICAL);
+		atomic_explosive = new BlockExplosive("atomic", EnumExplosionType.ATOMIC);
+		flakey_explosive = new BlockExplosive("flakey", EnumExplosionType.FLAKEY);
+		fission_explosive = new BlockExplosive("fission", EnumExplosionType.FISSION);
 		
 		sentry_turret = new BlockTurret("sentry", TileEntityTurretSentry.class);
 		missile_turret = new BlockTurret("missile", TileEntityTurretMissile.class);

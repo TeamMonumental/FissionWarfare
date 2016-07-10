@@ -47,7 +47,7 @@ public class EntityFlakey extends Entity{
 		double velX = net.minecraft.util.MathHelper.getRandomDoubleInRange(rand, -.3D, .3D);
 		double velZ = net.minecraft.util.MathHelper.getRandomDoubleInRange(rand, -.3D, .3D);
 		
-		BlockExplosive basicBomb = (BlockExplosive)InitBlocks.basicExplosive;
+		BlockExplosive basicBomb = (BlockExplosive)InitBlocks.basic_explosive;
 		EntityExplosive bomb = new EntityExplosive(worldObj, posXX, posYY + 30, posZZ, basicBomb);
 		if (!worldObj.isRemote){
 			worldObj.setWorldTime(18000);
