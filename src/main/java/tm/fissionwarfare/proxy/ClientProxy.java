@@ -10,6 +10,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import tm.fissionwarfare.Reference;
 import tm.fissionwarfare.entity.EntityExplosive;
+import tm.fissionwarfare.entity.EntityFissionCore;
 import tm.fissionwarfare.entity.EntityMissile;
 import tm.fissionwarfare.event.GunRenderEvent;
 import tm.fissionwarfare.event.TierTooltipEvent;
@@ -20,6 +21,7 @@ import tm.fissionwarfare.key.KeyInputHandler;
 import tm.fissionwarfare.render.RenderCompressor;
 import tm.fissionwarfare.render.RenderControlPanel;
 import tm.fissionwarfare.render.RenderExplosive;
+import tm.fissionwarfare.render.RenderFissionCore;
 import tm.fissionwarfare.render.RenderLaunchPad;
 import tm.fissionwarfare.render.RenderMissile;
 import tm.fissionwarfare.render.RenderMissileTurret;
@@ -50,6 +52,7 @@ public class ClientProxy extends CommonProxy {
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityExplosive.class, new RenderExplosive());
 		RenderingRegistry.registerEntityRenderingHandler(EntityMissile.class, new RenderMissile());
+		RenderingRegistry.registerEntityRenderingHandler(EntityFissionCore.class, new RenderFissionCore());
 		
 		MinecraftForgeClient.registerItemRenderer(InitItems.shotgun, new ItemRenderShotgun());
 		

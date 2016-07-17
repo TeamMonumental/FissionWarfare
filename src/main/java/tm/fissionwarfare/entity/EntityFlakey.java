@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import tm.fissionwarfare.block.BlockExplosive;
 import tm.fissionwarfare.init.InitBlocks;
 
-public class EntityFlakey extends Entity{
+public class EntityFlakey extends Entity {
 	
 	private static final double MAX_LIFE = 20 * 10;
 
@@ -39,17 +39,19 @@ public class EntityFlakey extends Entity{
 	}
 
 	private void doDamage() {
+		
 		int posXX = (int)posX;
 		int posYY = (int)posY;
-		int posZZ = (int)posZ;
+		int posZZ = (int)posZ;	
 		
-		
-		double velX = net.minecraft.util.MathHelper.getRandomDoubleInRange(rand, -.3D, .3D);
-		double velZ = net.minecraft.util.MathHelper.getRandomDoubleInRange(rand, -.3D, .3D);
+		double velX = MathHelper.getRandomDoubleInRange(rand, -.3D, .3D);
+		double velZ = MathHelper.getRandomDoubleInRange(rand, -.3D, .3D);
 		
 		BlockExplosive basicBomb = (BlockExplosive)InitBlocks.basic_explosive;
 		EntityExplosive bomb = new EntityExplosive(worldObj, posXX, posYY + 30, posZZ, basicBomb);
+		
 		if (!worldObj.isRemote){
+			
 			worldObj.setWorldTime(18000);
 			worldObj.setRainStrength(1.0F);
 			worldObj.setThunderStrength(1.0F);
@@ -68,14 +70,13 @@ public class EntityFlakey extends Entity{
 	}
 
 	@Override
-	protected void readEntityFromNBT(NBTTagCompound p_70037_1_) {
+	protected void readEntityFromNBT(NBTTagCompound nbt) {
 		
 	}
 
 	@Override
-	protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {
+	protected void writeEntityToNBT(NBTTagCompound nbt) {
 		
 	}
-
 }
 

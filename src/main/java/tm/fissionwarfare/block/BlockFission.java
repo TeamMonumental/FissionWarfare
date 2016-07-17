@@ -2,10 +2,15 @@ package tm.fissionwarfare.block;
 
 import java.util.Random;
 
+import cofh.core.entity.EntitySelectorInRangeByType;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import tm.fissionwarfare.damage.DamageSourceCustom;
 import tm.fissionwarfare.init.InitBlocks;
 import tm.fissionwarfare.util.math.Location;
 
@@ -22,6 +27,19 @@ public class BlockFission extends BlockBase {
 	@Override
 	public int tickRate(World world) {
 		return 10;
+	}
+	
+	@Override
+	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+		
+		if (entity instanceof EntityPlayer) {
+			
+			EntityPlayer player = (EntityPlayer)entity;
+			
+			player.attackEntityFrom(new DamageSourceCustom(player.getDisplayName() + " was consumed by fission"), 5);			
+		}
+		
+		else entity.attackEntityFrom(DamageSource.magic, 5);
 	}
 	
 	@Override
@@ -42,5 +60,11 @@ public class BlockFission extends BlockBase {
 				}
 			}
 		}
+	}
+	
+	@Override
+	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
+			
+		world.spawnParticle("portal", x + rand.nextDouble(), y + 1, z + rand.nextDouble(), 0, 0.5D, 0);
 	}
 }

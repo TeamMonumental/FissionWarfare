@@ -94,7 +94,7 @@ tile.liquid_glass.name=Liquid Glass
 
 #-#-#-#-#-ENTITY-#-#-#-#-#
 
-entity.FissionWarfare.fission_heart.name=Fission Heart
+entity.FissionWarfare.fission_core.name=Fission Core
 
 #-#-#-#-#-CONFIG-#-#-#-#-#
 

@@ -173,8 +173,7 @@ public class EntityMissile extends Entity implements IEntityAdditionalSpawnData,
 	}
 	
 	@Override
-	protected void entityInit() {
-		
+	protected void entityInit() {		
 		
 		if (worldObj.isRemote) {
 			SoundHelper.playSound(getSound());
