@@ -70,6 +70,8 @@ tile.concrete_15.name=Concrete
 tile.steel_block_15.name=Steel Block
 tile.reinforced_glass_10.name=Reinforced Glass
 
+tile.fisssion.name=Fission
+
 tile.basic_explosion.name=Basic Explosive
 tile.emp_explosion.name=EMP Explosive
 tile.pyro_explosion.name=Pyrotechnics Explosive
