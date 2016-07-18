@@ -30,6 +30,8 @@ public class InitItems {
 	public static Item fiery_capsule;	
 	public static Item electromagnetic_capsule;
 	public static Item nuclear_capsule;
+	public static Item storm_capsule;
+	public static Item fission_capsule;
 	
 	public static Item cement;
 	public static Item wet_cement;
@@ -77,6 +79,8 @@ public class InitItems {
 		fiery_capsule = new ItemBase("fiery_capsule");		
 		electromagnetic_capsule = new ItemBase("electromagnetic_capsule");
 		nuclear_capsule = new ItemBase("nuclear_capsule");
+		storm_capsule = new ItemBase("storm_capsule");
+		fission_capsule = new ItemBase("fission_capsule");
 		
 		steel_ingot = new ItemBase("steel_ingot");
 		steel_plate = new ItemBase("steel_plate");

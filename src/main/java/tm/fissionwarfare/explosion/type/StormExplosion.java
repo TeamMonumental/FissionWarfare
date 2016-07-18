@@ -7,7 +7,7 @@ import tm.fissionwarfare.entity.EntityFlakey;
 import tm.fissionwarfare.sounds.FWSound;
 import tm.fissionwarfare.util.math.Vector3d;
 
-public class FlakeyExplosion implements IExplosionType {
+public class StormExplosion implements IExplosionType {
 
 	private World world;
 	private Vector3d vector;

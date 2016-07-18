@@ -105,6 +105,14 @@ public class InitRecipes {
 			"EEE", "UUU", "EEE", 'U', InitItems.uranium_pellet, 'E', TFItems.ingotEnderium,
 		}));
 		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitItems.storm_capsule, 1), new Object[] {
+			" B ", "BLB", " B ", 'L', InitItems.lightning_rod, 'B', Items.water_bucket
+		}));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitItems.fission_capsule, 1), new Object[] {
+			"SSS", "SES", "SSS", 'S', Blocks.end_stone, 'E', Items.ender_eye
+		}));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitItems.electromagnetic_capsule, 1), new Object[] {
 			"SSS", "SLS", "CPC", 'L', new ItemStack(InitItems.lightning_rod), 'C', TEItems.capacitorHardened, 'P', TEItems.powerCoilSilver, 'S', new ItemStack(InitItems.steel_plate)
 		}));
@@ -129,6 +137,14 @@ public class InitRecipes {
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitBlocks.basic_explosive, 1), new Object[] {
 			"SES", "ERE", "SES", 'S', InitItems.steel_plate, 'E', Blocks.tnt, 'R', TEItems.powerCoilSilver
+		}));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitBlocks.fission_explosive, 1), new Object[] {
+			"SAS", "AFA", "SAS", 'S', InitItems.steel_plate, 'A', InitBlocks.atomic_explosive, 'F', InitItems.fission_capsule
+		}));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(InitBlocks.storm_explosive, 1), new Object[] {
+			"SBS", "BCB", "SBS", 'S', InitItems.steel_plate, 'B', InitBlocks.basic_explosive, 'C', InitItems.storm_capsule
 		}));
 		
 		/////////////////////////////////////////////////////////MACHINES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

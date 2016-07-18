@@ -37,7 +37,7 @@ public class InitBlocks {
 	public static Block pyro_explosive;
 	public static Block chemical_explosive;
 	public static Block atomic_explosive;
-	public static Block flakey_explosive;
+	public static Block storm_explosive;
 	public static Block fission_explosive;
 		
 	public static Block sentry_turret;
@@ -70,7 +70,7 @@ public class InitBlocks {
 		pyro_explosive = new BlockExplosive("pyro", EnumExplosionType.PYRO);
 		chemical_explosive = new BlockExplosive("chemical", EnumExplosionType.CHEMICAL);
 		atomic_explosive = new BlockExplosive("atomic", EnumExplosionType.ATOMIC);
-		flakey_explosive = new BlockExplosive("flakey", EnumExplosionType.FLAKEY);
+		storm_explosive = new BlockExplosive("storm", EnumExplosionType.STORM);
 		fission_explosive = new BlockExplosive("fission", EnumExplosionType.FISSION);
 		
 		sentry_turret = new BlockTurret("sentry", TileEntityTurretSentry.class);
