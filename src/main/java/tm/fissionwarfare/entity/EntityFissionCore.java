@@ -18,11 +18,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import tm.fissionwarfare.util.FissionUtil;
 import tm.fissionwarfare.util.math.Location;
+import tm.fissionwarfare.util.math.MathUtil;
 
 public class EntityFissionCore extends Entity implements IEntityAdditionalSpawnData, IBossDisplayData {
 	
 	private float life = getMaxHealth();
-	private int range = 3;
+	private int range = 5;
 	
 	public EntityFissionCore(World world) {
 		super(world);
@@ -74,10 +75,10 @@ public class EntityFissionCore extends Entity implements IEntityAdditionalSpawnD
 		FissionUtil.removeFission(new Location(worldObj, (int)posX - 1, (int)posY, (int)posZ - 1), range);
 		
 		if (worldObj.isRemote) {
-			worldObj.playSound(posX, posY, posZ, "mob.zombie.remedy", 10, 0.7F, false);
+			worldObj.playSound(posX, posY, posZ, "mob.zombie.remedy", 10, 0.5F + (float)MathUtil.scaleDouble(range, 75, 1), false);
 		}
 		
-		range += 2;		
+		range += 5;		
 		
 		if (range > 75) {
 			setDead();

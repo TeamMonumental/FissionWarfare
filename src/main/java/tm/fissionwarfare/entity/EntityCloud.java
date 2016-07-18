@@ -20,9 +20,7 @@ public class EntityCloud extends Entity {
 	}
 
 	@Override
-	public void entityInit() {
-		
-	}
+	public void entityInit() {}
 	
 	@Override
 	public void onUpdate() {

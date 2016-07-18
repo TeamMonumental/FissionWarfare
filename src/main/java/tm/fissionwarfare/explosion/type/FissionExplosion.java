@@ -27,7 +27,7 @@ public class FissionExplosion implements IExplosionType {
 	@Override
 	public void doBlockDamage() {
 		
-		world.setBlock((int)vector.x, (int)vector.y, (int)vector.z, InitBlocks.fission);
+		world.setBlock((int)vector.x, (int)vector.y - 1, (int)vector.z, InitBlocks.fission);
 		world.spawnEntityInWorld(new EntityFissionCore(world, vector.x, vector.y, vector.z));
 		
 		for (Location loc : ShapeUtil.getSphere(new Location(world, vector), 10)) {

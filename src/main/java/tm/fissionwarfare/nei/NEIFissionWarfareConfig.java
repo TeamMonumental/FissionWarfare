@@ -12,7 +12,8 @@ public class NEIFissionWarfareConfig implements IConfigureNEI {
 	public void loadConfig() {
 		
 		API.hideItem(new ItemStack(InitBlocks.control_panel));
-		API.hideItem(new ItemStack(InitBlocks.support_frame));	
+		API.hideItem(new ItemStack(InitBlocks.support_frame));
+		API.hideItem(new ItemStack(InitBlocks.fission));
 		
 		API.registerRecipeHandler(new MissileFactoryRecipeHandler());
 	}

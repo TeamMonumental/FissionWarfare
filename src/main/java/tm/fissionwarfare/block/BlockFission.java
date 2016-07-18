@@ -3,12 +3,16 @@ package tm.fissionwarfare.block;
 import java.util.Random;
 
 import cofh.core.entity.EntitySelectorInRangeByType;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import tm.fissionwarfare.damage.DamageSourceCustom;
 import tm.fissionwarfare.init.InitBlocks;
@@ -19,7 +23,8 @@ public class BlockFission extends BlockBase {
 	Random rand = new Random();
 	
 	public BlockFission() {
-		super("fission", Material.rock, 0, 0, Float.MAX_VALUE, Block.soundTypeStone);
+		super("fission", Material.rock, 0, 0, Float.MAX_VALUE, Block.soundTypeStone, false);		
+		GameRegistry.registerBlock(this, "fission");
 		setBlockUnbreakable();
 		setTickRandomly(true);
 	}
@@ -55,7 +60,11 @@ public class BlockFission extends BlockBase {
 									
 					if (rand.nextInt(2) == 1 && loc.getBlock() != this && loc.getBlock() != Blocks.air) {
 					
-						loc.setBlock(this);						
+						loc.setBlock(this);
+						
+						if (world.isRemote) {
+							world.playSound(x, y, z, "mob.zombie.unfect", 1, (float)MathHelper.getRandomDoubleInRange(rand, 0.5D, 1.5D), false);
+						}
 					}
 				}
 			}
@@ -66,5 +75,10 @@ public class BlockFission extends BlockBase {
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
 			
 		world.spawnParticle("portal", x + rand.nextDouble(), y + 1, z + rand.nextDouble(), 0, 0.5D, 0);
+	}
+	
+	@Override
+	public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {		
+		return null;
 	}
 }
