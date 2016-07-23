@@ -13,8 +13,8 @@ item.poison_capsule.name=Poison Capsule
 item.fiery_capsule.name=Fiery Capsule
 item.shrapnel_capsule.name=Shrapnel Capsule
 item.electromagnetic_capsule.name=Electromagnetic Capsule
-item.nuclear_capsule.name=Nuclear Capsule
 item.storm_capsule.name=Storm Capsule
+item.nuclear_capsule.name=Nuclear Capsule
 item.fission_capsule.name=Fission Capsule
 
 item.cement.name=Cement
@@ -76,9 +76,9 @@ tile.basic_explosion.name=Basic Explosive
 tile.emp_explosion.name=EMP Explosive
 tile.pyro_explosion.name=Pyrotechnics Explosive
 tile.chemical_explosion.name=Chemical Explosive
+tile.storm_explosion.name=Storm Explosive
 tile.atomic_explosion.name=Atomic Explosive
 tile.fission_explosion.name=Fission Explosive
-tile.storm_explosion.name=Storm Explosive
 
 tile.sentry_turret.name=Sentry Turret
 tile.missile_turret.name=Anti-Missile Turret

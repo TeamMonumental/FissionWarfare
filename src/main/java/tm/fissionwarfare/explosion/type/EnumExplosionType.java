@@ -8,8 +8,8 @@ public enum EnumExplosionType {
 	EMP("EMP", new EMPExplosion(), 100),
 	PYRO("Pyro", new PyroExplosion(), 100),
 	CHEMICAL("Chemical", new ChemicalExplosion(), 100),
-	ATOMIC("Atomic", new AtomicExplosion(), 100),
 	STORM("Storm", new StormExplosion(), 100),
+	ATOMIC("Atomic", new AtomicExplosion(), 100),	
 	FISSION("Fission", new FissionExplosion(), 150);
 
 	private String name;

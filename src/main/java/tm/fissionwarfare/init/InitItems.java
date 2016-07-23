@@ -29,8 +29,8 @@ public class InitItems {
 	public static Item poison_capsule;
 	public static Item fiery_capsule;	
 	public static Item electromagnetic_capsule;
-	public static Item nuclear_capsule;
 	public static Item storm_capsule;
+	public static Item nuclear_capsule;	
 	public static Item fission_capsule;
 	
 	public static Item cement;
@@ -78,8 +78,8 @@ public class InitItems {
 		poison_capsule = new ItemBase("poison_capsule");
 		fiery_capsule = new ItemBase("fiery_capsule");		
 		electromagnetic_capsule = new ItemBase("electromagnetic_capsule");
-		nuclear_capsule = new ItemBase("nuclear_capsule");
 		storm_capsule = new ItemBase("storm_capsule");
+		nuclear_capsule = new ItemBase("nuclear_capsule");
 		fission_capsule = new ItemBase("fission_capsule");
 		
 		steel_ingot = new ItemBase("steel_ingot");

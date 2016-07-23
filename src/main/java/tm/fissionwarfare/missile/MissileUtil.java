@@ -20,7 +20,9 @@ public class MissileUtil {
 		if (data.getExplosionType() == EnumExplosionType.EMP) block = InitBlocks.emp_explosive;
 		if (data.getExplosionType() == EnumExplosionType.PYRO) block = InitBlocks.pyro_explosive;
 		if (data.getExplosionType() == EnumExplosionType.CHEMICAL) block = InitBlocks.chemical_explosive;
+		if (data.getExplosionType() == EnumExplosionType.STORM) block = InitBlocks.storm_explosive;
 		if (data.getExplosionType() == EnumExplosionType.ATOMIC) block = InitBlocks.atomic_explosive;
+		if (data.getExplosionType() == EnumExplosionType.FISSION) block = InitBlocks.fission_explosive;
 				
 		if (data.getExplosionType() != null) ingrediants[0] = new ItemStack(block);
 		

@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import tm.fissionwarfare.Reference;
 import tm.fissionwarfare.api.IExplosiveBlock;
@@ -42,9 +43,15 @@ public class BlockExplosive extends BlockBase implements IExplosiveBlock {
 		}
 	}
 	
+	@Override
+	public void onBlockExploded(World world, int x, int y, int z, Explosion explosion) {		
+		activate(world, x, y, z);
+	}
+	
 	public void activate(World world, int x, int y, int z) {	
 		
 		if (FWConfig.enableIgnitingPlacedExplosives) {
+			
 			world.setBlockToAir(x, y, z);
 			world.spawnEntityInWorld(new EntityExplosive(world, x, y, z, this));
 		}	 

@@ -3,7 +3,11 @@ package tm.fissionwarfare.explosion;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.block.BlockTNT;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.world.World;
+import tm.fissionwarfare.block.BlockExplosive;
 import tm.fissionwarfare.block.BlockReinforced;
 import tm.fissionwarfare.util.math.Angle2d;
 import tm.fissionwarfare.util.math.Location;
@@ -45,9 +49,21 @@ public class ExplosionUtil {
 		}
 	}
 	
-	private static void processBlock(Location location) {	
+	private static void processBlock(Location loc) {	
 		
-		location.setBlockToAir();		
+		if (loc.getBlock() instanceof BlockTNT) {
+			
+			EntityTNTPrimed entitytntprimed = new EntityTNTPrimed(loc.world, (double)((float)loc.x + 0.5F), (double)((float)loc.y + 0.5F), (double)((float)loc.z + 0.5F), (EntityLivingBase)null);
+            entitytntprimed.fuse = loc.world.rand.nextInt(entitytntprimed.fuse / 4) + entitytntprimed.fuse / 8;
+            loc.world.spawnEntityInWorld(entitytntprimed);
+		}
+		
+		if (loc.getBlock() instanceof BlockExplosive) {
+			
+			((BlockExplosive)loc.getBlock()).activate(loc.world, loc.x, loc.y, loc.z);			
+		}
+		
+		else loc.setBlockToAir();		
 	}
 
 	private static List<Location> generateExplosionRay(Vector3d vector, Angle2d angle, World world, double distance) {
