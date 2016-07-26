@@ -20,7 +20,7 @@ public class SecurityProfile {
 		return teamName;
 	}
 	
-	public void setTeamName(Team team) {
+	public void setTeam(Team team) {
 		teamName = team.getRegisteredName();
 	}
 	

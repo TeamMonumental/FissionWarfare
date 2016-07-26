@@ -16,6 +16,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import tm.fissionwarfare.config.FWConfig;
 import tm.fissionwarfare.event.OnPlayerJoinEvent;
+import tm.fissionwarfare.event.PlaceStorageEvent;
 import tm.fissionwarfare.event.SecurityEvent;
 import tm.fissionwarfare.gui.base.GuiHandler;
 import tm.fissionwarfare.init.InitBlocks;
@@ -60,6 +61,8 @@ public class FissionWarfare {
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 		
 		MinecraftForge.EVENT_BUS.register(new SecurityEvent());
+		MinecraftForge.EVENT_BUS.register(new PlaceStorageEvent());
+		
 		FMLCommonHandler.instance().bus().register(new OnPlayerJoinEvent());
 		
 		InitToolMaterials.init();

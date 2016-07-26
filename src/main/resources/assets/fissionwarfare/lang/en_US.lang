@@ -72,13 +72,13 @@ tile.reinforced_glass_10.name=Reinforced Glass
 
 tile.fisssion.name=Fission
 
-tile.basic_explosion.name=Basic Explosive
-tile.emp_explosion.name=EMP Explosive
-tile.pyro_explosion.name=Pyrotechnics Explosive
-tile.chemical_explosion.name=Chemical Explosive
-tile.storm_explosion.name=Storm Explosive
-tile.atomic_explosion.name=Atomic Explosive
-tile.fission_explosion.name=Fission Explosive
+tile.basic_explosive.name=Basic Explosive
+tile.emp_explosive.name=EMP Explosive
+tile.pyro_explosive.name=Pyrotechnics Explosive
+tile.chemical_explosive.name=Chemical Explosive
+tile.storm_explosive.name=Storm Explosive
+tile.atomic_explosive.name=Atomic Explosive
+tile.fission_explosive.name=Fission Explosive
 
 tile.sentry_turret.name=Sentry Turret
 tile.missile_turret.name=Anti-Missile Turret

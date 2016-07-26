@@ -70,8 +70,8 @@ public class InitBlocks {
 		pyro_explosive = new BlockExplosive("pyro", EnumExplosionType.PYRO);
 		chemical_explosive = new BlockExplosive("chemical", EnumExplosionType.CHEMICAL);
 		storm_explosive = new BlockExplosive("storm", EnumExplosionType.STORM);
-		atomic_explosive = new BlockExplosive("atomic", EnumExplosionType.ATOMIC);		
-		fission_explosive = new BlockExplosive("fission", EnumExplosionType.FISSION);
+		atomic_explosive = new BlockExplosive("atomic", EnumExplosionType.ATOMIC).setHighTier();		
+		fission_explosive = new BlockExplosive("fission", EnumExplosionType.FISSION).setHighTier();
 		
 		sentry_turret = new BlockTurret("sentry", TileEntityTurretSentry.class);
 		missile_turret = new BlockTurret("missile", TileEntityTurretMissile.class);

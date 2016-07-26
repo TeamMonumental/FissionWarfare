@@ -13,12 +13,11 @@ import tm.fissionwarfare.entity.EntityExplosive;
 import tm.fissionwarfare.entity.EntityFissionCore;
 import tm.fissionwarfare.entity.EntityMissile;
 import tm.fissionwarfare.event.GunRenderEvent;
-import tm.fissionwarfare.event.TierTooltipEvent;
+import tm.fissionwarfare.event.LoreEvent;
 import tm.fissionwarfare.init.InitBlocks;
 import tm.fissionwarfare.init.InitItems;
 import tm.fissionwarfare.key.KeyBindings;
 import tm.fissionwarfare.key.KeyInputHandler;
-import tm.fissionwarfare.render.RenderCompressor;
 import tm.fissionwarfare.render.RenderControlPanel;
 import tm.fissionwarfare.render.RenderExplosive;
 import tm.fissionwarfare.render.RenderFissionCore;
@@ -46,7 +45,7 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.registerKeyBinding(KeyBindings.teamGuiButton);
 		ClientRegistry.registerKeyBinding(KeyBindings.reloadGunButton);
 		
-		MinecraftForge.EVENT_BUS.register(new TierTooltipEvent());
+		MinecraftForge.EVENT_BUS.register(new LoreEvent());
 		MinecraftForge.EVENT_BUS.register(new GunRenderEvent());
 		FMLCommonHandler.instance().bus().register(new KeyInputHandler());
 		

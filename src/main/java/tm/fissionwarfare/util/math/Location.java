@@ -1,7 +1,10 @@
 package tm.fissionwarfare.util.math;
 
 import java.util.List;
+import java.util.Random;
 
+import cofh.lib.util.helpers.BlockHelper;
+import cofh.lib.util.helpers.ItemHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
@@ -13,7 +16,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class Location {
-
+	
+	Random rand = new Random();
+	
 	public World world;
 	public int x, y, z;
 
@@ -104,12 +109,16 @@ public class Location {
 	}
 	
 	public EntityItem dropItem(ItemStack stack) {
-		EntityItem entityItem = new EntityItem(world, x, y, z, stack);
+		
+		EntityItem entityItem = new EntityItem(world, x + 0.5D, y + 0.5D, z + 0.5D, stack);
 		world.spawnEntityInWorld(entityItem);
+		
+		entityItem.setVelocity(MathHelper.getRandomDoubleInRange(rand, -0.1D, 0.1D), 0.2D, MathHelper.getRandomDoubleInRange(rand, -0.1D, 0.1D));
+				
 		return entityItem;
 	}
 	
-	public void breakBlock() {
+	public List<ItemStack> breakBlock() {
 		
 		List<ItemStack> drops = getDrops();
 		
@@ -125,11 +134,13 @@ public class Location {
 			
 			for (int i = 0 ; i < inv.getSizeInventory(); i++) {
 				
-				dropItem(inv.getStackInSlot(i));
+				if (inv.getStackInSlot(i) != null) dropItem(inv.getStackInSlot(i));
 			}
 		}
 		
 		setBlockToAir();
+		
+		return drops;
 	}
 	
 	public boolean checkBlock(Block block) {

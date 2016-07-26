@@ -7,12 +7,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+import tm.fissionwarfare.api.IShiftInfoItem;
 import tm.fissionwarfare.explosion.type.EnumExplosionType;
 import tm.fissionwarfare.init.InitTabs;
 import tm.fissionwarfare.missile.MissileData;
 import tm.fissionwarfare.util.ItemLoreUtil;
 
-public class ItemMissile extends ItemBase {
+public class ItemMissile extends ItemBase implements IShiftInfoItem {
 
 	public ItemMissile() {
 		super("missile", InitTabs.tabWarfare, false);
@@ -28,12 +29,11 @@ public class ItemMissile extends ItemBase {
 		list.add(EnumChatFormatting.GOLD + "Accuracy Tier: " + EnumChatFormatting.AQUA + missileData.getAccuracyTier());
 		list.add(EnumChatFormatting.GOLD + "Fuel Tier: " + EnumChatFormatting.AQUA + missileData.getFuelTier() + " (Max Distance: " + missileData.getMaxBlockDistance() + ")");
 		list.add(EnumChatFormatting.GOLD + "Armor Tier: " + EnumChatFormatting.AQUA + missileData.getArmorTier());	
-		list.add("");
-		
-		if (ItemLoreUtil.addShiftLore(list)) {
-			
-			list.add("Right-click : Places it on a Launch Pad");			
-		}
+	}
+	
+	@Override
+	public void addShiftLore(List<String> list) {
+		list.add("Right-click : Places it on a Launch Pad");
 	}
 	
 	@Override

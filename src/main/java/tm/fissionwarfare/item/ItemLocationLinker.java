@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+import tm.fissionwarfare.api.IShiftInfoItem;
 import tm.fissionwarfare.init.InitTabs;
 import tm.fissionwarfare.tileentity.machine.TileEntityControlPanel;
 import tm.fissionwarfare.tileentity.machine.TileEntityLaunchPad;
@@ -17,7 +18,7 @@ import tm.fissionwarfare.util.ItemLoreUtil;
 import tm.fissionwarfare.util.NBTUtil;
 import tm.fissionwarfare.util.UnitChatMessage;
 
-public class ItemLocationLinker extends ItemBase {
+public class ItemLocationLinker extends ItemBase implements IShiftInfoItem {
 
 	public ItemLocationLinker() {
 		super("location_linker", InitTabs.tabWarfare);
@@ -29,14 +30,14 @@ public class ItemLocationLinker extends ItemBase {
 		list.add(EnumChatFormatting.GOLD + "Block Location");
 		list.add(EnumChatFormatting.GOLD + "X: " + EnumChatFormatting.AQUA + NBTUtil.getNBT(is).getInteger("X"));
 		list.add(EnumChatFormatting.GOLD + "Z: " + EnumChatFormatting.AQUA + NBTUtil.getNBT(is).getInteger("Z"));
-		list.add("");
+	}
+	
+	@Override
+	public void addShiftLore(List<String> list) {
 		
-		if (ItemLoreUtil.addShiftLore(list)) {
-								
-			list.add("Binds locations to Control Panels");
-			list.add("Right-click : Links a location.");
-			list.add("Sneak Right-click : Sends coords to machine.");
-		}
+		list.add("Binds locations to Control Panels");
+		list.add("Right-click : Links a location.");
+		list.add("Sneak Right-click : Sends coords to machine.");		
 	}
 	
 	@Override

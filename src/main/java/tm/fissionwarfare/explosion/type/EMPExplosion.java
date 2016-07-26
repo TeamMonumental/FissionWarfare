@@ -42,7 +42,7 @@ public class EMPExplosion implements IExplosionType {
 				IEnergyHandler energy = (IEnergyHandler) loc.getTileEntity();
 				
 				while (energy.getEnergyStored(ForgeDirection.UNKNOWN) > 0) {
-					
+										
 					energy.extractEnergy(ForgeDirection.UNKNOWN, energy.getEnergyStored(ForgeDirection.UNKNOWN), false);
 				}			
 			}

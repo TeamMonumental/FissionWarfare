@@ -20,14 +20,22 @@ import tm.fissionwarfare.proxy.ClientProxy;
 
 public class BlockExplosive extends BlockBase implements IExplosiveBlock {
 		
+	private IIcon top_icon;
+	
 	private EnumExplosionType explosion;
+	private boolean isHighTier;
 
 	public BlockExplosive(String imagePath, EnumExplosionType explosion) {
-		super(imagePath + "_explosion", Material.tnt, 0, 0, 0, Block.soundTypeStone);
+		super(imagePath + "_explosive", Material.tnt, 0, 0, 0, Block.soundTypeStone);
 		this.explosion = explosion;
 		setCreativeTab(InitTabs.tabWarfare);
 	}
 
+	public BlockExplosive setHighTier() {		
+		isHighTier = true;		
+		return this;
+	}
+	
 	public void onBlockAdded(World world, int x, int y, int z) {
 		super.onBlockAdded(world, x, y, z);
 
@@ -63,9 +71,20 @@ public class BlockExplosive extends BlockBase implements IExplosiveBlock {
 	}
 	
 	@Override
+	public IIcon getIcon(int side, int meta) {
+		
+		if (side == 0 || side == 1) {
+			return top_icon;
+		}
+		
+		return blockIcon;
+	}
+	
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconReg) {
 		
+		top_icon = iconReg.registerIcon(Reference.MOD_ID + ":explosives/explosive_top_" + (isHighTier ? "black" : "green"));
 		blockIcon = iconReg.registerIcon(Reference.MOD_ID + ":explosives/" + imageName);		
 	}
 }

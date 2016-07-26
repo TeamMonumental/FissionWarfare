@@ -9,13 +9,14 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import tm.fissionwarfare.FissionWarfare;
+import tm.fissionwarfare.api.IShiftInfoItem;
 import tm.fissionwarfare.init.InitBlocks;
 import tm.fissionwarfare.packet.ClientPacketHandler;
 import tm.fissionwarfare.tileentity.machine.TileEntityLaunchPad;
 import tm.fissionwarfare.util.ItemLoreUtil;
 import tm.fissionwarfare.util.math.Location;
 
-public abstract class ItemBlockLaunchPadAttachment extends ItemBlockBase {
+public abstract class ItemBlockLaunchPadAttachment extends ItemBlockBase implements IShiftInfoItem {
 
 	public ItemBlockLaunchPadAttachment(String imageName) {
 		super(imageName);
@@ -24,13 +25,9 @@ public abstract class ItemBlockLaunchPadAttachment extends ItemBlockBase {
 	public abstract boolean placeAttachment(World world, Location hitLoc);
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean b) {
-		
-		if (ItemLoreUtil.addShiftLore(list)) {
-			
-			list.add("A component to the Launch Pad.");
-			list.add("Right-click : Uses item.");
-		}
+	public void addShiftLore(List<String> list) {		
+		list.add("A component to the Launch Pad.");
+		list.add("Right-click : Uses item.");
 	}
 	
 	@Override

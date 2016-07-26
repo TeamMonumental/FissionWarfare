@@ -4,6 +4,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.sun.jmx.snmp.InetAddressAcl;
 
+import cofh.core.entity.EntityLightningBoltFake;
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import io.netty.buffer.ByteBuf;
@@ -11,6 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.entity.boss.IBossDisplayData;
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -22,7 +24,7 @@ import tm.fissionwarfare.util.math.MathUtil;
 
 public class EntityFissionCore extends Entity implements IEntityAdditionalSpawnData, IBossDisplayData {
 	
-	private float life = getMaxHealth();
+	public float life = getMaxHealth();
 	private int range = 5;
 	
 	public EntityFissionCore(World world) {
@@ -67,7 +69,7 @@ public class EntityFissionCore extends Entity implements IEntityAdditionalSpawnD
 		
 		if (ticksExisted % 20 == 0) {
 			doDamage();
-		}	
+		}
 	}
 	
 	private void removeFission() {
@@ -82,6 +84,7 @@ public class EntityFissionCore extends Entity implements IEntityAdditionalSpawnD
 		
 		if (range > 75) {
 			setDead();
+			worldObj.spawnEntityInWorld(new EntityLightningBolt(worldObj, posX, posY, posZ));
 		}
 	}
 	

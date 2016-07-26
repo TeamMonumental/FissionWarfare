@@ -29,7 +29,7 @@ public class SecurityEvent {
 					if (FWConfig.enableTeamErrorMessage) ChatUtil.printFWMessage(EnumChatFormatting.WHITE, "You are not on a team. No security will be added!", event.player);
 				} 
 				
-				else security.getSecurityProfile().setTeamName(event.player.getTeam());
+				else security.getSecurityProfile().setTeam(event.player.getTeam());
 			}
 		}
 	}

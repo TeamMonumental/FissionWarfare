@@ -1,7 +1,10 @@
 package tm.fissionwarfare.block;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
+import cofh.api.block.IDismantleable;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -16,9 +19,14 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import tm.fissionwarfare.FissionWarfare;
 import tm.fissionwarfare.Reference;
+import tm.fissionwarfare.api.ISecurity;
 import tm.fissionwarfare.init.InitTabs;
+import tm.fissionwarfare.tileentity.base.TileEntityEnergyBase;
+import tm.fissionwarfare.tileentity.base.TileEntityInventoryBase;
+import tm.fissionwarfare.util.NBTUtil;
+import tm.fissionwarfare.util.math.Location;
 
-public abstract class BlockContainerBase extends BlockContainer {
+public abstract class BlockContainerBase extends BlockContainer implements IDismantleable {
 
 	private final Random random = new Random();
 
@@ -71,6 +79,7 @@ public abstract class BlockContainerBase extends BlockContainer {
 		if (tileentity != null) {
 			
 			for (int i1 = 0; i1 < tileentity.getSizeInventory(); ++i1) {
+				
 				ItemStack itemstack = tileentity.getStackInSlot(i1);
 
 				if (itemstack != null) {
@@ -105,6 +114,34 @@ public abstract class BlockContainerBase extends BlockContainer {
 		}
 
 		super.breakBlock(world, x, y, z, block, meta);
+	}
+	
+	@Override
+	public boolean canDismantle(EntityPlayer player, World world, int x, int y, int z) {		
+		return true;
+	}
+	
+	@Override
+	public ArrayList<ItemStack> dismantleBlock(EntityPlayer player, World world, int x, int y, int z, boolean returnDrops) {
+		
+		Location loc = new Location(world, x, y, z);
+				
+		ItemStack drop = loc.getDrops().get(0);
+		NBTTagCompound dropTag = NBTUtil.getNBT(drop);
+		
+		if (loc.getTileEntity() instanceof TileEntityEnergyBase) {
+			
+			TileEntityEnergyBase energy = (TileEntityEnergyBase)loc.getTileEntity();
+			
+			if (energy.storage.getEnergyStored() > 0) {
+				dropTag.setInteger("energy", ((TileEntityEnergyBase)loc.getTileEntity()).storage.getEnergyStored());
+			}		
+		}
+		
+		loc.setBlockToAir();
+		loc.dropItem(drop);
+		
+		return null;
 	}
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float f, float f2, float f3) {
